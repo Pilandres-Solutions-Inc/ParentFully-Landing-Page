@@ -30,7 +30,7 @@ export const whatIsParentfully: WhatData[] = [
                 icon: <FiStar size={24} />
             }
         ],
-        imageSrc: "/mocks/mock_intro.png"
+        imageSrc: "/images/family.webp"
     }
 ];
 
