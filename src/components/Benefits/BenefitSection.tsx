@@ -36,7 +36,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
     const { title, description, imageSrc, bullets } = benefit;
 
     return (
-        <section className="relative overflow-hidden py-20 lg:py-32">
+        <section className="relative overflow-hidden py-12 lg:py-12">
             <motion.div
                 className={clsx(
                     "max-w-7xl mx-auto px-6 flex flex-col items-center gap-12 lg:flex-row lg:gap-24",

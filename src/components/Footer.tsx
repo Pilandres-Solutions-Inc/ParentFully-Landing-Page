@@ -13,6 +13,16 @@ import { FaMailBulk } from 'react-icons/fa';
 import { Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
+    const taglines = [
+        "Parentfully — Parenting works better with a system.",
+        "Parentfully — More structure. More clarity. Less chaos.",
+        "Parentfully — Helping families raise confident, capable children with consistency.",
+        "Parentfully — The family operating system for intentional parenting."
+    ];
+
+    // Randomly select a tagline or rotate (using first one as default)
+    const selectedTagline = taglines[1]; // "More structure. More clarity. Less chaos."
+
     return (
         <footer className="relative bg-[#005A31] text-white pt-20 pb-10 overflow-hidden">
             {/* Subtle Background Pattern */}
@@ -41,6 +51,13 @@ const Footer: React.FC = () => {
                         <p className="mt-6 text-emerald-50/70 text-sm leading-relaxed max-w-xs">
                             {footerDetails.subheading}
                         </p>
+
+                        {/* Tagline */}
+                        <div className="mt-4 pt-4 border-t border-white/10">
+                            <p className="text-emerald-50/60 text-xs italic leading-relaxed">
+                                {selectedTagline}
+                            </p>
+                        </div>
 
                         {/* Social Icons with Glass Effect */}
                         {footerDetails.socials && (
