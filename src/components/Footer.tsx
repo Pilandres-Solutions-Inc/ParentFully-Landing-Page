@@ -3,13 +3,11 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
 import { getPlatformIconByName } from '@/utils';
 import { FaPhone } from 'react-icons/fa6';
-import { FaMailBulk } from 'react-icons/fa';
 import { Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -62,9 +60,9 @@ const Footer: React.FC = () => {
                         {/* Social Icons with Glass Effect */}
                         {footerDetails.socials && (
                             <div className="mt-8 flex items-center gap-3">
-                                {Object.keys(footerDetails.socials).map(platformName => (
+                                {Object.entries(footerDetails.socials).map(([platformName, url]) => url && (
                                     <Link
-                                        href={footerDetails.socials[platformName] as any}
+                                        href={url}
                                         key={platformName}
                                         className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-all hover:bg-[#F38500] hover:border-[#F38500] hover:-translate-y-1"
                                         aria-label={platformName}

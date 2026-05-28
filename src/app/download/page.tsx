@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight, PlayCircle, Star, CheckCircle2 } from 'lucide-react';
-import { heroDetails } from '@/data/hero';
 import { downloadLinks, platformFeatures } from '@/data/download';
 
 const DownloadPage = () => {
@@ -31,10 +30,10 @@ const DownloadPage = () => {
                                                   <Star key={s} size={14} className="fill-[#F38500] text-[#F38500]" />
                                              ))}
                                         </div>
-                                        <span className="text-sm font-black text-[#005A31] ml-2 uppercase tracking-tighter">Trusted by 10k+ Parents</span>
+                                        <span className="text-sm font-black text-[#005A31] ml-2 uppercase">Trusted by 10k+ Parents</span>
                                    </div>
 
-                                   <h1 className="text-6xl md:text-8xl font-black text-[#005A31] leading-[0.9] tracking-tighter mb-8">
+                                   <h1 className="text-6xl md:text-8xl font-black text-[#005A31] leading-[0.9] mb-8 text-balance">
                                         Start Your <br />
                                         <span className="text-[#F38500]">Stress-Free</span> <br />
                                         Journey.
@@ -81,7 +80,7 @@ const DownloadPage = () => {
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
-                              className="group bg-white/80 backdrop-blur-xl p-10 rounded-[3.5rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] transition-all duration-500"
+                              className="group bg-white/80 backdrop-blur-xl p-8 sm:p-10 rounded-2xl border border-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] transition-all duration-500"
                          >
                               <div className="flex justify-between items-start mb-16">
                                    <div className="w-20 h-20 bg-[#1A1A1A] rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
@@ -107,7 +106,7 @@ const DownloadPage = () => {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ delay: 0.1 }}
-                              className="group bg-[#005A31] p-10 rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,90,49,0.2)] hover:shadow-[0_40px_80px_rgba(0,90,49,0.3)] transition-all duration-500 text-white"
+                              className="group bg-[#005A31] p-8 sm:p-10 rounded-2xl shadow-[0_20px_50px_rgba(0,90,49,0.2)] hover:shadow-[0_40px_80px_rgba(0,90,49,0.3)] transition-all duration-500 text-white"
                          >
                               <div className="flex justify-between items-start mb-16">
                                    <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">

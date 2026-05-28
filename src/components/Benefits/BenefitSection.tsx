@@ -36,10 +36,10 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
     const { title, description, imageSrc, bullets } = benefit;
 
     return (
-        <section className="relative overflow-hidden py-12 lg:py-12">
+        <section className="relative overflow-hidden py-10 lg:py-12">
             <motion.div
                 className={clsx(
-                    "max-w-7xl mx-auto px-6 flex flex-col items-center gap-12 lg:flex-row lg:gap-24",
+                    "max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-10 lg:flex-row lg:gap-20",
                     !imageAtRight && "lg:flex-row-reverse"
                 )}
                 variants={containerVariants}
@@ -55,12 +55,12 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
                                 {title}
                             </h2>
                         </SectionTitle>
-                        <p className="text-lg text-gray-600 max-w-xl mx-auto lg:ml-0 leading-relaxed">
+                        <p className="text-lg text-gray-600 max-w-xl mx-auto lg:ml-0 leading-relaxed text-balance">
                             {description}
                         </p>
                     </motion.div>
 
-                    <div className="mt-8 space-y-2">
+                    <div className="mt-8 space-y-3">
                         {bullets.map((item, index) => (
                             <BenefitBullet
                                 key={index}
@@ -79,7 +79,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
                 >
                     {/* Visual Flourish */}
                     <div className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] bg-orange-400/10 blur-[100px] rounded-full -z-10" />
-                    <div className="absolute inset-0 scale-90 bg-white/30 backdrop-blur-xl border border-white/50 rounded-[3rem] shadow-2xl -rotate-6 -z-10 hidden md:block" />
+                    <div className="absolute inset-0 scale-90 bg-white/30 backdrop-blur-xl border border-white/50 rounded-2xl shadow-2xl -rotate-3 -z-10 hidden md:block" />
 
                     {/* Option 1: With float animation on wrapper */}
                     <div className="animate-float">
@@ -88,24 +88,14 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
                                 src={imageSrc}
                                 alt={title}
                                 fill
-                                priority
                                 quality={100}
+                                sizes="(min-width: 1024px) 380px, (min-width: 640px) 320px, 280px"
                                 className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
                             />
                         </div>
                     </div>
                 </motion.div>
             </motion.div>
-
-            <style jsx global>{`
-                @keyframes float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-15px); }
-                }
-                .animate-float {
-                    animation: float 6s ease-in-out infinite;
-                }
-            `}</style>
         </section>
     );
 }

@@ -27,10 +27,10 @@ const HelpCenter = () => {
 
 
                {/* --- Hero Search Section --- */}
-               <section className="bg-[#005A31] pt-32 pb-24 px-6 relative overflow-hidden inset-0 backdrop-blur-lg bg-white/40">
+               <section className="bg-[#005A31] pt-32 pb-24 px-6 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-[#F38500]/10 blur-[100px] rounded-full" />
                     <div className="max-w-4xl mx-auto text-center relative z-10">
-                         <h1 className="text-4xl md:text-6xl text-[#F38500]text-white tracking-tighter mb-6">
+                         <h1 className="text-4xl md:text-6xl font-black text-white mb-6 text-balance">
                               How can we <span className="text-[#F38500]">help?</span>
                          </h1>
                          <div className="relative max-w-2xl mx-auto">
@@ -62,7 +62,7 @@ const HelpCenter = () => {
                          <div className="grid md:grid-cols-3 gap-6">
                               {filteredArticles.slice(0, 6).map((article) => (
                                    <Link key={article.id} href={`/help/${article.id}`}>
-                                        <div className="h-full p-7 bg-white rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all group flex flex-col">
+                                        <div className="h-full p-7 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all group flex flex-col">
                                              <p className="text-[10px] font-black text-[#F38500] uppercase tracking-[0.2em] mb-3">{article.category}</p>
                                              <h4 className="font-bold text-lg text-[#1A1A1A] group-hover:text-[#005A31] transition-colors mb-3 leading-tight">{article.title}</h4>
                                              <p className="text-sm text-gray-500 mb-6 line-clamp-2 leading-relaxed">{article.description}</p>
@@ -119,7 +119,7 @@ const HelpCenter = () => {
 
                          {/* --- Sticky Support Form --- */}
                          <div className="relative">
-                              <div className="sticky top-32 bg-white rounded-[3rem] p-10 shadow-2xl border border-gray-100 overflow-hidden">
+                              <div className="sticky top-32 bg-white rounded-2xl p-8 lg:p-10 shadow-2xl border border-gray-100 overflow-hidden">
                                    {/* Background Accent */}
                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#E2FDF8] rounded-full -mr-16 -mt-16 -z-0" />
 
@@ -127,9 +127,9 @@ const HelpCenter = () => {
                                         <div className="w-16 h-16 bg-[#005A31] rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-emerald-100">
                                              <MessageCircle className="text-white" size={28} />
                                         </div>
-                                        <h3 className="text-2xl font-black text-[#1A1A1A] mb-3 tracking-tight">Still stuck?</h3>
+                                        <h3 className="text-2xl font-black text-[#1A1A1A] mb-3">Still stuck?</h3>
                                         <p className="text-gray-500 text-sm mb-8 font-medium leading-relaxed">
-                                             Can't find what you're looking for? Our support team typically responds within 24 hours.
+                                             Can&apos;t find what you&apos;re looking for? Our support team typically responds within 24 hours.
                                         </p>
 
                                         <form className="space-y-4">

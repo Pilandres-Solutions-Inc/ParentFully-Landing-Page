@@ -1,8 +1,7 @@
-# robots.txt for parentfullyapp.com
+# robots.txt for Parentfully
 
-# Allow all search engines to crawl the entire site
 User-agent: *
 Disallow:
+Disallow: /api/
 
-# Tell search engines where to find your sitemap
-Sitemap: https://www.parentfullyapp.com/sitemap.xml
+Sitemap: https://parentfully.app/sitemap.xml

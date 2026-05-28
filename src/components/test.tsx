@@ -1,108 +1,18 @@
 "use client"
 
-import { useState, useMemo } from "react"
-import countryList from "react-select-country-list"
-import Select from "react-select"
-import PhoneInput from "react-phone-input-2"
+import { useState } from "react"
 import "react-phone-input-2/lib/style.css"
-import { ctaDetails } from "@/data/cta"
 import Modal from "./WaitlistModal"
 
 const CTA: React.FC = () => {
      const [isOpen, setIsOpen] = useState(false)
      const [loading, setLoading] = useState(false)
-     const [formData, setFormData] = useState({
-          name: "",
-          email: "",
-          phone: "",
-          device: "",
-          country: "",
-     })
-     const countries = useMemo(() => countryList().getData(), [])
-     const [errors, setErrors] = useState<{ [key: string]: string }>({})
-
-     const validate = () => {
-          const newErrors: { [key: string]: string } = {}
-          if (!formData.name.trim()) newErrors.name = "Name is required"
-          if (!formData.email.trim()) {
-               newErrors.email = "Email is required"
-          } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-               newErrors.email = "Please enter a valid email address"
-          }
-          if (!formData.phone.trim()) newErrors.phone = "Phone number is required"
-          if (!formData.device.trim()) newErrors.device = "Please select your device type"
-          if (!formData.country.trim()) newErrors.country = "Please select your country"
-
-          setErrors(newErrors)
-          return Object.keys(newErrors).length === 0
-     }
-
-     const handleChange = (
-          e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-     ) => {
-          const { name, value } = e.target
-          setFormData(prev => ({ ...prev, [name]: value }))
-          // Clear error when user starts typing
-          if (errors[name]) {
-               setErrors(prev => ({ ...prev, [name]: "" }))
-          }
-     }
-
-     const handleCountryChange = (option: any) => {
-          setFormData(prev => ({ ...prev, country: option?.value || "" }))
-          if (errors.country) {
-               setErrors(prev => ({ ...prev, country: "" }))
-          }
-     }
-
-     const handlePhoneChange = (value: string) => {
-          setFormData(prev => ({ ...prev, phone: value }))
-          if (errors.phone) {
-               setErrors(prev => ({ ...prev, phone: "" }))
-          }
-     }
-
-     const handleSubmit = async (e: React.FormEvent) => {
-          e.preventDefault()
-          if (!validate()) return
-
+     const handleScore = () => {
           setLoading(true)
-          try {
-               const res = await fetch("/api/cta", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(formData),
-               })
-
-               if (res.ok) {
-                    setIsOpen(true)
-                    setFormData({ name: "", email: "", phone: "", device: "", country: "" })
-               } else {
-                    const errorData = await res.json()
-                    alert(errorData.message || "Failed to submit. Please try again.")
-               }
-          } catch (error) {
-               alert("Something went wrong. Please check your connection and try again.")
-          } finally {
+          window.setTimeout(() => {
                setLoading(false)
-          }
-     }
-
-     const customSelectStyles = {
-          control: (base: any, state: any) => ({
-               ...base,
-               minHeight: '48px',
-               borderRadius: '0.375rem',
-               borderColor: state.isFocused ? '#10B981' : '#D1D5DB',
-               boxShadow: state.isFocused ? '0 0 0 2px rgba(16, 185, 129, 0.2)' : 'none',
-               '&:hover': {
-                    borderColor: state.isFocused ? '#10B981' : '#9CA3AF'
-               }
-          }),
-          menu: (base: any) => ({
-               ...base,
-               zIndex: 50,
-          }),
+               setIsOpen(true)
+          }, 500)
      }
 
      return (
@@ -125,7 +35,8 @@ const CTA: React.FC = () => {
 
                          {/* Submit */}
                          <button
-                              type="submit"
+                              type="button"
+                              onClick={handleScore}
                               disabled={loading}
                               className={`w-full mt-6 px-6 py-3 rounded-lg font-semibold shadow-md transition-colors
                 ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-orange-500 hover:bg-orange-600 text-white"}

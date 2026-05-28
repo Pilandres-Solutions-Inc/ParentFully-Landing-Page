@@ -41,11 +41,11 @@ export default function EmotionalSection() {
                                    <span className="text-sm text-[#005A31] font-medium">The truth</span>
                               </motion.div>
 
-                              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed">
+                              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed text-balance">
                                    Your child does not need{" "}
                                    <span className="line-through text-gray-400">perfect parents</span>
                               </p>
-                              <p className="text-2xl md:text-3xl font-bold text-gray-800 mt-2">
+                              <p className="text-2xl md:text-3xl font-bold text-gray-800 mt-2 text-balance">
                                    Your child needs clear, loving, consistent adults
                               </p>
                               <p className="text-xl text-gray-600 mt-4">
@@ -58,7 +58,7 @@ export default function EmotionalSection() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6, delay: 0.3 }}
-                              className="bg-gradient-to-r from-[#005A31]/5 to-[#F38500]/5 rounded-2xl p-8 mb-8"
+                              className="bg-gradient-to-r from-[#005A31]/5 to-[#F38500]/5 rounded-2xl border border-[#005A31]/10 p-6 md:p-8 mb-8"
                          >
                               <p className="text-center text-lg font-semibold text-gray-700 mb-6">
                                    Parentfully helps you become that kind of family:
@@ -71,12 +71,12 @@ export default function EmotionalSection() {
                                              whileInView={{ opacity: 1, x: 0 }}
                                              viewport={{ once: true }}
                                              transition={{ delay: idx * 0.05 }}
-                                             className="flex items-center gap-3 bg-white rounded-xl p-3 shadow-sm"
+                                             className="flex items-center gap-3 bg-white rounded-xl p-3 shadow-sm ring-1 ring-black/[0.03]"
                                         >
                                              <div className="w-8 h-8 bg-[#005A31]/10 rounded-full flex items-center justify-center text-[#005A31]">
                                                   {trait.icon}
                                              </div>
-                                             <span className="text-gray-700">{trait.text}</span>
+                                             <span className="text-gray-700 leading-snug">{trait.text}</span>
                                         </motion.div>
                                    ))}
                               </div>

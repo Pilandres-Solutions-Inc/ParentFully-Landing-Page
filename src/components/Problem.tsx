@@ -1,12 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
-import { AlertCircle, ArrowRight, Brain, Heart } from "lucide-react";
+import { AlertCircle, ArrowRight, Brain } from "lucide-react";
 import Link from "next/link";
 
 const struggles = [
      "Remember the routines",
      "Track the school activities",
-     "Correct the behaviour",
+     "Guide behavior consistently",
      "Build your child's confidence",
      "Follow up on responsibilities",
      "Communicate with your partner, co-parent, nanny, or caregiver",
@@ -51,7 +51,7 @@ export default function ProblemSection() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6, delay: 0.2 }}
-                              className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-6 md:p-8 mb-8"
+                              className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl border border-orange-100 p-6 md:p-8 mb-8"
                          >
                               <p className="text-center text-gray-700 font-semibold mb-6">
                                    You are trying to:
@@ -64,10 +64,10 @@ export default function ProblemSection() {
                                              whileInView={{ opacity: 1, x: 0 }}
                                              viewport={{ once: true }}
                                              transition={{ delay: idx * 0.05 }}
-                                             className="flex items-center gap-3 bg-white rounded-xl p-3 shadow-sm"
+                                             className="flex items-center gap-3 bg-white rounded-xl p-3 shadow-sm ring-1 ring-black/[0.03]"
                                         >
                                              <div className="w-2 h-2 rounded-full bg-red-400" />
-                                             <span className="text-gray-700 text-sm">{struggle}</span>
+                                             <span className="text-gray-700 text-sm leading-snug">{struggle}</span>
                                         </motion.div>
                                    ))}
                               </div>
@@ -87,7 +87,7 @@ export default function ProblemSection() {
                               <p className="text-xl text-gray-800 font-semibold mb-4">
                                    That is too much to hold in your head.
                               </p>
-                              <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+                              <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                                    Parentfully helps you organize the daily work of parenting, so your child gets the consistency they need and you get the clarity you deserve.
                               </p>
                               <Link href="/download">

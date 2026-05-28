@@ -46,7 +46,7 @@ export default function TransformationSection() {
                               transition={{ duration: 0.6 }}
                               className="text-center mb-12"
                          >
-                              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">
+                              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white text-balance">
                                    Move from{" "}
                                    <span className="text-orange-400">daily chaos</span>
                                    <br />
@@ -70,14 +70,14 @@ export default function TransformationSection() {
                                         transition={{ delay: idx * 0.05 }}
                                         className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all"
                                    >
-                                        <div className="flex items-center justify-between gap-4 flex-wrap sm:flex-nowrap">
-                                             <span className="text-white/70 text-sm sm:text-base font-medium">
+                                        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+                                             <span className="text-white/70 text-sm sm:text-base font-medium text-left">
                                                   {item.before}
                                              </span>
                                              <div className="flex-shrink-0">
                                                   <ArrowLeftRight className="w-5 h-5 text-orange-400" />
                                              </div>
-                                             <span className="text-white font-semibold text-sm sm:text-base">
+                                             <span className="text-white font-semibold text-sm sm:text-base text-right">
                                                   {item.after}
                                              </span>
                                         </div>

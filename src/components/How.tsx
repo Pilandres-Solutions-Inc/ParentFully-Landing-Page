@@ -29,7 +29,7 @@ const steps = [
           step: "04",
           icon: <TargetIcon className="w-8 h-8" />,
           title: "Add goals and discipline plans",
-          description: "Set the skills, habits, values, and behaviours you want to build in your child.",
+          description: "Set the skills, habits, values, and behaviors you want to build in your child.",
           extra: "Then create simple guidance plans to support those goals."
      },
      {
@@ -62,7 +62,7 @@ export default function HowItWorks() {
                                    <span className="text-sm text-[#005A31] font-medium">Simple setup</span>
                               </motion.div>
 
-                              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900">
+                              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900 text-balance">
                                    How It{" "}
                                    <span className="text-[#F38500]">Works</span>
                               </h2>
@@ -82,7 +82,7 @@ export default function HowItWorks() {
                                         transition={{ duration: 0.5, delay: idx * 0.1 }}
                                         className="relative"
                                    >
-                                        <div className="bg-gradient-to-r from-gray-50 to-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all">
+                                        <div className="bg-gradient-to-r from-gray-50 to-white rounded-2xl p-6 border border-gray-200 hover:-translate-y-0.5 hover:shadow-lg transition-all">
                                              <div className="flex flex-col md:flex-row gap-6">
                                                   {/* Step Number & Icon */}
                                                   <div className="flex-shrink-0">
@@ -101,10 +101,10 @@ export default function HowItWorks() {
                                                        <h3 className="text-xl font-bold text-gray-800 mb-2">
                                                             {step.title}
                                                        </h3>
-                                                       <p className="text-gray-600 mb-2">
+                                                       <p className="text-gray-600 mb-2 leading-relaxed">
                                                             {step.description}
                                                        </p>
-                                                       <p className="text-sm text-gray-500 italic">
+                                                       <p className="text-sm text-gray-500 leading-relaxed">
                                                             {step.extra}
                                                        </p>
                                                   </div>

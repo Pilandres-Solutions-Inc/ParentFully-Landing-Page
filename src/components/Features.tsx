@@ -21,7 +21,7 @@ const features = [
      {
           icon: <Shield className="w-7 h-7" />,
           title: "Discipline Plan",
-          description: "Build a calm and consistent behaviour guidance plan before problems happen.",
+          description: "Build a calm and consistent behavior guidance plan before problems happen.",
           color: "from-purple-500 to-purple-600"
      },
      {
@@ -39,7 +39,7 @@ const features = [
      {
           icon: <FileText className="w-7 h-7" />,
           title: "Documentation",
-          description: "Record important behaviours, concerns, incidents, agreements, and observations clearly.",
+          description: "Record important behaviors, concerns, incidents, agreements, and observations clearly.",
           color: "from-indigo-500 to-indigo-600"
      },
      {
@@ -65,9 +65,9 @@ export default function FeatureOverview() {
                          whileInView={{ opacity: 1, y: 0 }}
                          viewport={{ once: true }}
                          transition={{ duration: 0.6 }}
-                         className="text-center mb-12"
+                         className="text-center mb-12 max-w-4xl mx-auto"
                     >
-                         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900">
+                         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900 text-balance">
                               Everything you need to{" "}
                               <span className="text-[#F38500]">parent with more clarity</span>
                          </h2>

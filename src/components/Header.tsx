@@ -41,14 +41,14 @@ const Header: React.FC = () => {
                             alt={siteDetails.siteName}
                             width={160}
                             height={60}
-                            className="w-auto h-10 md:h-14 lg:h-16 object-contain"
+                            className="w-auto h-10 md:h-12 lg:h-14 object-contain"
                             priority
                         />
                     </Link>
 
                     {/* Desktop Navigation - Clean & Spaced */}
-                    <div className="hidden md:flex items-center gap-10">
-                        <ul className="flex items-center gap-10">
+                    <div className="hidden md:flex items-center gap-8">
+                        <ul className="flex items-center gap-8">
                             {menuItems.map((item) => (
                                 <li key={item.text}>
                                     <Link
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
 
                         <Link
                             href="/download"
-                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 rounded-2xl text-[15px] font-bold shadow-[0_10px_20px_-10px_rgba(243,133,0,0.5)] transition-all hover:-translate-y-0.5 active:translate-y-0"
+                            className="bg-orange-500 hover:bg-orange-600 text-white px-7 py-3 rounded-xl text-[15px] font-bold shadow-[0_10px_20px_-10px_rgba(243,133,0,0.5)] transition-all hover:-translate-y-0.5 active:translate-y-0"
                         >
                             Download Now
                         </Link>
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
                     {/* Mobile Menu Button - Minimalist Style */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-3 text-slate-800 bg-slate-100/50 rounded-2xl hover:bg-slate-200/50 transition-colors"
+                        className="md:hidden p-3 text-slate-800 bg-slate-100/50 rounded-xl hover:bg-slate-200/50 transition-colors"
                         aria-label="Toggle Menu"
                     >
                         {isOpen ? <HiOutlineXMark size={24} /> : <HiBars3 size={24} />}
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
                 leaveTo="opacity-0 scale-95 translate-y-[-20px]"
             >
                 <div className="px-4 mt-4 md:hidden">
-                    <div className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden">
+                    <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
                         <ul className="flex flex-col p-8 gap-6">
                             {menuItems.map((item) => (
                                 <li key={item.text}>
@@ -108,7 +108,7 @@ const Header: React.FC = () => {
                                 <Link
                                     href="#cta"
                                     onClick={() => setIsOpen(false)}
-                                    className="block w-full text-center bg-orange-500 text-white py-5 rounded-[1.5rem] text-lg font-black shadow-lg"
+                                    className="block w-full text-center bg-orange-500 text-white py-4 rounded-xl text-lg font-black shadow-lg"
                                 >
                                     Download App
                                 </Link>

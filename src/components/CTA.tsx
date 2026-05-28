@@ -54,7 +54,7 @@ const ContactCTA: React.FC = () => {
 
     return (
         <section id="contact" className="py-20 lg:py-32 px-6 bg-gradient-to-br from-white to-gray-50">
-            <div className="max-w-6xl mx-auto relative rounded-[3rem] bg-[#005A31] overflow-hidden shadow-[0_40px_100px_rgba(0,90,49,0.3)]">
+            <div className="max-w-6xl mx-auto relative rounded-2xl bg-[#005A31] overflow-hidden shadow-[0_32px_80px_rgba(0,90,49,0.24)]">
 
                 {/* Modern Background Accents */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-[#F38500] opacity-20 blur-[120px] -mr-32 -mt-32" />
@@ -77,7 +77,7 @@ const ContactCTA: React.FC = () => {
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                className="text-4xl md:text-5xl font-black leading-tight tracking-tighter text-white"
+                                className="text-4xl md:text-5xl font-black leading-tight text-white text-balance"
                             >
                                 Start building your{" "}
                                 <span className="text-[#F38500]">family system</span>
@@ -140,16 +140,16 @@ const ContactCTA: React.FC = () => {
 
                     {/* --- Right Side: Form --- */}
                     <div className="w-full lg:w-1/2 p-6 lg:p-12 bg-white/5 backdrop-blur-sm">
-                        <div className="bg-white rounded-[2rem] p-8 lg:p-10 shadow-2xl">
+                        <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl">
                             {submitted ? (
                                 <motion.div
                                     initial={{ scale: 0.9, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
                                     className="text-center py-20"
                                 >
-                                    <div className="text-5xl mb-6">🎉</div>
+                                    <CheckCircle className="mx-auto mb-6 h-12 w-12 text-[#005A31]" />
                                     <h3 className="text-2xl font-bold text-[#005A31]">Message Sent!</h3>
-                                    <p className="text-gray-500 mt-2">We'll get back to you shortly.</p>
+                                    <p className="text-gray-500 mt-2">We&apos;ll get back to you shortly.</p>
                                     <button
                                         onClick={() => setSubmitted(false)}
                                         className="mt-8 text-[#F38500] font-bold underline"
@@ -161,7 +161,7 @@ const ContactCTA: React.FC = () => {
                                 <>
                                     <div className="text-center mb-6">
                                         <h3 className="text-2xl font-bold text-[#005A31]">Have Questions?</h3>
-                                        <p className="text-gray-500 text-sm mt-1">We're here to help</p>
+                                        <p className="text-gray-500 text-sm mt-1">We&apos;re here to help</p>
                                     </div>
                                     <form onSubmit={handleSubmit} className="space-y-5">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

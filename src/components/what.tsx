@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FiHome, FiStar, FiHeart } from "react-icons/fi";
 
 interface WhatData {
@@ -40,22 +41,24 @@ export const WhatIsParentfullySection = () => {
     return (
         <section className="relative w-full overflow-hidden py-20 lg:py-28 bg-white">
             <div className="relative max-w-7xl mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
                     {/* Left side - Image */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="flex-1"
+                        className="w-full"
                     >
                         <div className="relative">
-                            {/* Image glow effect */}
-                            <div className="absolute -inset-4 bg-gradient-to-r from-[#005A31]/10 to-[#F38500]/10 rounded-3xl blur-2xl -z-10" />
-                            <img
+                            <div className="absolute -inset-4 bg-[#E2FDF8] rounded-2xl blur-2xl -z-10" />
+                            <Image
                                 src={data.imageSrc}
                                 alt={data.title}
-                                className="w-full h-auto rounded-2xl shadow-2xl"
+                                width={720}
+                                height={520}
+                                sizes="(min-width: 1024px) 48vw, 100vw"
+                                className="h-auto w-full rounded-2xl object-cover shadow-[0_24px_70px_rgba(0,90,49,0.14)]"
                             />
                         </div>
                     </motion.div>
@@ -66,7 +69,7 @@ export const WhatIsParentfullySection = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="flex-1"
+                        className="w-full"
                     >
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#005A31]/10 rounded-full mb-6">
@@ -74,11 +77,9 @@ export const WhatIsParentfullySection = () => {
                             <span className="text-sm font-semibold text-[#005A31] tracking-wide">What Parentfully Is</span>
                         </div>
 
-                        <h2 className="text-4xl sm:text-5xl font-black text-[#005A31] leading-tight mb-4">
-                            {data.title.split(" ")[0]} {data.title.split(" ")[1]}{" "}
-                            <span className="text-[#F38500]">{data.title.split(" ")[2]} {data.title.split(" ")[3]}</span>
-                            <br />
-                            {data.title.split(" ").slice(4).join(" ")}
+                        <h2 className="text-4xl sm:text-5xl font-black text-[#005A31] leading-tight mb-4 text-balance">
+                            One system for{" "}
+                            <span className="text-[#F38500]">real family life</span>
                         </h2>
 
                         <p className="text-lg text-gray-600 leading-relaxed mb-8">
@@ -111,9 +112,9 @@ export const WhatIsParentfullySection = () => {
                         </div>
 
                         {/* Divider with tagline */}
-                        <div className="mt-8 pt-6 border-t border-gray-100">
-                            <p className="text-sm text-gray-400 italic">
-                                Parentfully — More structure. More clarity. Less chaos.
+                        <div className="mt-8 border-t border-gray-100 pt-6">
+                            <p className="text-sm font-medium text-gray-500">
+                                Parentfully: more structure, more clarity, less chaos.
                             </p>
                         </div>
                     </motion.div>

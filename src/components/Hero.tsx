@@ -16,15 +16,15 @@ const features = [
 
 const Hero: React.FC = () => {
     return (
-        <section className="relative w-full overflow-hidden pt-32 pb-20 md:pt-40">
+        <section className="relative w-full overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20">
             {/* Background */}
             <div className="absolute inset-0 -z-50 bg-[#E2FDF8]" />
             <div className="absolute inset-0 -z-40 bg-cover bg-center opacity-[0.04]" style={{ backgroundImage: "url('/images/HeroBG.png')" }} />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-white/40 to-transparent -z-30" />
 
-            <div className="relative max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
                 {/* Heading */}
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#005A31] leading-[0.95] max-w-5xl tracking-tight">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#005A31] leading-[0.95] max-w-5xl text-balance">
                     Parenting <span className="text-[#F38500]">feels easier</span> <br className="hidden md:block" /> when your family has a system.
                 </h1>
 
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
                         </div>
                         <div className="flex flex-col items-start leading-none border-l border-white/20 pl-4">
                             <span className="text-[10px] uppercase tracking-wider text-orange-100 font-bold">Start Free</span>
-                            <span className="text-lg tracking-tight">Download Parentfully</span>
+                            <span className="text-lg">Download Parentfully</span>
                         </div>
                         <div className="bg-white/20 p-1.5 rounded-full group-hover:bg-[#F38500] transition">
                             <ArrowRight className="w-4 h-4" />
@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
                 </Link>
 
                 {/* Mockup Stack */}
-                <div className="mt-16 relative w-full max-w-4xl h-[500px] sm:h-[600px] md:h-[700px] flex justify-center items-end">
+                <div className="mt-14 md:mt-16 relative w-full max-w-4xl h-[470px] sm:h-[600px] md:h-[700px] flex justify-center items-end">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-orange-400/10 blur-[120px] rounded-full -z-10" />
 
                     {/* Left Mockup */}
