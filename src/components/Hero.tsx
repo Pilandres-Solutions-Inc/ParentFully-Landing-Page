@@ -23,9 +23,9 @@ const Hero: React.FC = () => {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-white/40 to-transparent -z-30" />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] max-w-5xl text-balance">
-                    Raise them together. <span className="text-[#005A31]">Raise them well.</span>
-                </h1>
+                <h2 className="max-w-6xl text-4xl font-black leading-[1.02] text-balance sm:text-6xl md:text-7xl">
+                    Raise Them Together. <span className="text-[#005A31]">Raise Them Well.</span>
+                </h2>
 
                 <p className="mt-8 text-lg md:text-xl text-gray-600 max-w-2xl font-medium leading-relaxed">
                     One Playbook for Everyone Raising Your Child.
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
                             alt="Mom, dad, grandma, and children looking at one phone together"
                         />
                         <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/90 px-4 py-3 text-center shadow-lg backdrop-blur sm:left-6 sm:right-auto sm:text-left">
-                            <p className="text-sm font-black text-[#005A31]">One playbook for everyone raising your child</p>
+                            <p className="text-sm font-black leading-snug text-[#005A31]">One Playbook for Everyone Raising Your Child</p>
                         </div>
                     </div>
                 </div>

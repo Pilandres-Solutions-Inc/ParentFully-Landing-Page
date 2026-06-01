@@ -47,7 +47,7 @@ export default function WhoItsFor() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-center mb-12"
+                        className="mb-14 text-center lg:mb-16"
                     >
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -56,11 +56,11 @@ export default function WhoItsFor() {
                             className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6"
                         >
                             <Users className="w-4 h-4 text-orange-400" />
-                            <span className="text-sm text-white/90">Who it is for</span>
+                            <span className="text-sm font-bold text-white/90">Who It Is For</span>
                         </motion.div>
 
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-white">
-                            It takes a village. The village needs <span className="text-orange-400">one app.</span>
+                        <h2 className="mx-auto max-w-4xl text-4xl font-black leading-[1.05] text-white text-balance sm:text-5xl md:text-6xl">
+                            It Takes a Village. The Village Needs <span className="text-orange-400">One App.</span>
                         </h2>
                         <p className="mt-6 text-lg sm:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed">
                             Parentfully is built for every family with more than one moving part.
@@ -89,7 +89,7 @@ export default function WhoItsFor() {
                                         {type.icon}
                                     </div>
                                     <div>
-                                        <h3 className="text-white font-semibold text-sm">{type.title}</h3>
+                                        <h3 className="text-sm font-black leading-snug text-white">{type.title}</h3>
                                         <p className="mt-1 text-orange-100 text-xs font-semibold leading-relaxed">{type.quote}</p>
                                         <p className="mt-2 text-gray-300 text-xs leading-relaxed">{type.description}</p>
                                     </div>

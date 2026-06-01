@@ -25,7 +25,7 @@ export default function ProblemSection() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6 }}
-                              className="text-center mb-12"
+                              className="mb-14 text-center lg:mb-16"
                          >
                               <motion.div
                                    initial={{ opacity: 0, scale: 0.9 }}
@@ -34,12 +34,12 @@ export default function ProblemSection() {
                                    className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 rounded-full border border-red-200 mb-6"
                               >
                                    <AlertCircle className="w-4 h-4 text-red-500" />
-                                   <span className="text-sm text-red-600 font-medium">The reality</span>
+                                   <span className="text-sm font-bold text-red-600">The Reality</span>
                               </motion.div>
 
-                              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900">
-                                   Parenting breaks down when every adult has a{" "}
-                                   <span className="text-red-500">different playbook</span>
+                              <h2 className="mx-auto max-w-4xl text-4xl font-black leading-[1.05] text-gray-900 text-balance sm:text-5xl md:text-6xl">
+                                   Parenting Breaks Down When Every Adult Has a{" "}
+                                   <span className="text-red-500">Different Playbook</span>
                               </h2>
                               <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                                    Between two working parents, daycare, grandparents, and sitters, your child gets different rules, different routines, and different expectations every day.
@@ -55,12 +55,12 @@ export default function ProblemSection() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6, delay: 0.2 }}
-                              className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl border border-orange-100 p-6 md:p-8 mb-8"
+                              className="mb-8 rounded-2xl border border-red-200 bg-gradient-to-br from-red-50 via-white to-orange-50 p-6 shadow-[0_18px_45px_rgba(248,113,113,0.12)] md:p-8"
                          >
-                              <p className="text-center text-gray-700 font-semibold mb-6">
-                                   The result?
+                              <p className="mb-6 text-center text-xl font-black leading-tight text-red-700">
+                                   The Result?
                               </p>
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                              <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                                    {struggles.map((struggle, idx) => (
                                         <motion.div
                                              key={idx}
@@ -68,10 +68,12 @@ export default function ProblemSection() {
                                              whileInView={{ opacity: 1, x: 0 }}
                                              viewport={{ once: true }}
                                              transition={{ delay: idx * 0.05 }}
-                                             className="flex items-center gap-3 bg-white rounded-xl p-3 shadow-sm ring-1 ring-black/[0.03]"
+                                             className="group flex items-center gap-4 rounded-xl border border-red-100 bg-white p-4 shadow-sm ring-1 ring-red-100/70 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-200 hover:shadow-md"
                                         >
-                                             <div className="w-2 h-2 rounded-full bg-red-400" />
-                                             <span className="text-gray-700 text-sm leading-snug font-medium">{struggle}</span>
+                                             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 text-sm font-black text-red-600 group-hover:bg-red-500 group-hover:text-white">
+                                                  {idx + 1}
+                                             </div>
+                                             <span className="text-base font-bold leading-snug text-gray-800">{struggle}</span>
                                         </motion.div>
                                    ))}
                               </div>

@@ -16,8 +16,8 @@ const FAQ: React.FC = () => {
                         <span className="text-sm font-bold text-[#005A31]">FAQ</span>
                     </div>
 
-                    <h2 className="text-4xl font-black leading-tight text-[#005A31] text-balance sm:text-5xl md:text-6xl">
-                        Real questions from real parents
+                    <h2 className="text-4xl font-black leading-[1.05] text-[#005A31] text-balance sm:text-5xl md:text-6xl">
+                        Real Questions From Real Parents
                     </h2>
                     <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
                         Straight answers for families coordinating parents, grandparents, nannies, sitters, and co-parents.
@@ -54,7 +54,7 @@ const FAQ: React.FC = () => {
 
                 <div className="mx-auto mt-10 flex max-w-4xl flex-col items-center justify-between gap-4 rounded-2xl border border-[#005A31]/10 bg-[#005A31] p-5 text-center shadow-[0_18px_45px_rgba(0,90,49,0.18)] sm:flex-row sm:p-6 sm:text-left">
                     <div>
-                        <p className="text-lg font-black text-white">Still wondering if Parentfully fits your family?</p>
+                        <p className="text-lg font-black leading-snug text-white">Still Wondering if Parentfully Fits Your Family?</p>
                         <p className="mt-1 text-sm text-white/75">Send us your setup and we will point you in the right direction.</p>
                     </div>
                     <a

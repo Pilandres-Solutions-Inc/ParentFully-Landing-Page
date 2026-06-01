@@ -7,35 +7,35 @@ const steps = [
      {
           step: "01",
           icon: <UserPlus className="w-8 h-8" />,
-          title: "Create your child's profile",
+          title: "Create Your Child's Profile",
           description: "Add your child's details, age, needs, goals, routines, and important information.",
           extra: "Each child gets their own space, so parenting can become more personal and intentional."
      },
      {
           step: "02",
           icon: <Users className="w-8 h-8" />,
-          title: "Set your family structure",
+          title: "Set Your Family Structure",
           description: "Add the people involved in your child's care.",
           extra: "This can include a parent, partner, co-parent, nanny, caregiver, or trusted adult. Everyone can stay aligned based on their role."
      },
      {
           step: "03",
           icon: <Calendar className="w-8 h-8" />,
-          title: "Build your routines and schedules",
+          title: "Build Your Routines and Schedules",
           description: "Create daily routines, weekly plans, school schedules, activities, appointments, and family responsibilities.",
           extra: "Your family knows what needs to happen and when."
      },
      {
           step: "04",
           icon: <TargetIcon className="w-8 h-8" />,
-          title: "Add goals and discipline plans",
+          title: "Add Goals and Discipline Plans",
           description: "Set the skills, habits, values, and behaviors you want to build in your child.",
           extra: "Then create simple guidance plans to support those goals."
      },
      {
           step: "05",
           icon: <RefreshCw className="w-8 h-8" />,
-          title: "Track, update, and stay aligned",
+          title: "Track, Update, and Stay Aligned",
           description: "Use Parentfully to manage updates, tasks, communication, documentation, expenses, and progress.",
           extra: "Your family system grows with your real life."
      }
@@ -51,7 +51,7 @@ export default function HowItWorks() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6 }}
-                              className="text-center mb-12"
+                              className="mb-14 text-center lg:mb-16"
                          >
                               <motion.div
                                    initial={{ opacity: 0, scale: 0.9 }}
@@ -59,10 +59,10 @@ export default function HowItWorks() {
                                    transition={{ delay: 0.2 }}
                                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#005A31]/10 rounded-full border border-[#005A31]/20 mb-6"
                               >
-                                   <span className="text-sm text-[#005A31] font-medium">Simple setup</span>
+                                   <span className="text-sm font-bold text-[#005A31]">Simple Setup</span>
                               </motion.div>
 
-                              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900 text-balance">
+                              <h2 className="text-4xl font-black leading-[1.05] text-gray-900 text-balance sm:text-5xl md:text-6xl">
                                    How It{" "}
                                    <span className="text-[#F38500]">Works</span>
                               </h2>
@@ -98,8 +98,8 @@ export default function HowItWorks() {
 
                                                   {/* Content */}
                                                   <div className="flex-1">
-                                                       <h3 className="text-xl font-bold text-gray-800 mb-2">
-                                                            {step.title}
+                                                       <h3 className="mb-2 text-xl font-black leading-snug text-gray-800">
+                                                           {step.title}
                                                        </h3>
                                                        <p className="text-gray-600 mb-2 leading-relaxed">
                                                             {step.description}

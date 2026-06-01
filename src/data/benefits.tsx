@@ -8,7 +8,7 @@ import {
 
 export const benefits: IBenefit[] = [
     {
-        title: "Shared routines everyone can follow",
+        title: "Shared Routines Everyone Can Follow",
         description: "Keep mornings, meals, bedtime, chores, study time, and house rules consistent across every adult caring for your child.",
         bullets: [
             {
@@ -42,7 +42,7 @@ export const benefits: IBenefit[] = [
         imageSrc: "/mocks/mock6.png"
     },
     {
-        title: "Align on rules before things get hard",
+        title: "Align on Rules Before Things Get Hard",
         description: "Document expectations, consequences, and teaching responses so every adult responds with the same plan.",
         bullets: [
             {
@@ -59,7 +59,7 @@ export const benefits: IBenefit[] = [
         imageSrc: "/mocks/mock8.png"
     },
     {
-        title: "Invite your whole parenting team",
+        title: "Invite Your Whole Parenting Team",
         description: "Bring parents, grandparents, nannies, and sitters into the loop with the right level of access.",
         bullets: [
             {
@@ -76,7 +76,7 @@ export const benefits: IBenefit[] = [
         imageSrc: "/mocks/mock5.png"
     },
     {
-        title: "Run the family schedule with less mental load",
+        title: "Run the Family Schedule With Less Mental Load",
         description: "Track activities, appointments, routines, holidays, parenting time, and shared responsibilities in one place.",
         bullets: [
             {
@@ -93,7 +93,7 @@ export const benefits: IBenefit[] = [
         imageSrc: "/mocks/mock4.png"
     },
     {
-        title: "Support co-parenting with clarity",
+        title: "Support Co-Parenting With Clarity",
         description: "Keep schedules, expenses, and agreements child-focused instead of scattered across emotional message threads.",
         bullets: [
             {
@@ -110,7 +110,7 @@ export const benefits: IBenefit[] = [
         imageSrc: "/mocks/mock1.png"
     },
     {
-        title: "Document important parenting moments",
+        title: "Document Important Parenting Moments",
         description: "Record behaviors, concerns, incidents, wins, and agreements to notice patterns and make better decisions.",
         bullets: [
             {
@@ -127,7 +127,7 @@ export const benefits: IBenefit[] = [
         imageSrc: "/mocks/mock2.png"
     },
     {
-        title: "Track child-related expenses clearly",
+        title: "Track Child-Related Expenses Clearly",
         description: "Organize receipts, payment requests, reimbursements, approvals, and contributions without awkward follow-ups.",
         bullets: [
             {

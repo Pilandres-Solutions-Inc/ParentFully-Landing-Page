@@ -75,11 +75,11 @@ export default function FeatureOverview() {
                          whileInView={{ opacity: 1, y: 0 }}
                          viewport={{ once: true }}
                          transition={{ duration: 0.6 }}
-                         className="text-center mb-12 max-w-4xl mx-auto"
+                         className="mx-auto mb-14 max-w-4xl text-center lg:mb-16"
                     >
-                         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900 text-balance">
-                              What Parentfully{" "}
-                              <span className="text-[#F38500]">helps you do</span>
+                         <h2 className="text-4xl font-black leading-[1.05] text-gray-900 text-balance sm:text-5xl md:text-6xl">
+                              Everything You Need to{" "}
+                              <span className="text-[#F38500]">Parent With More Clarity.</span>
                          </h2>
                          <p className="mt-5 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                               Make the day easier while building the life skills that last.
@@ -99,7 +99,7 @@ export default function FeatureOverview() {
                               viewport={{ once: true }}
                               className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-[0_18px_45px_rgba(15,23,42,0.06)]"
                          >
-                              <h3 className="text-2xl sm:text-3xl font-black text-[#005A31]">Make every day easier</h3>
+                              <h3 className="text-2xl font-black leading-tight text-[#005A31] sm:text-3xl">Make Every Day Easier</h3>
                               <p className="mt-3 text-gray-600 leading-relaxed">One shared playbook so your team runs smoothly.</p>
                               <div className="mt-7 space-y-4">
                                    {dailyTools.map((feature, idx) => (
@@ -123,9 +123,9 @@ export default function FeatureOverview() {
                               transition={{ delay: 0.1 }}
                               className="rounded-2xl border border-[#005A31]/10 bg-[#005A31] p-6 sm:p-8 shadow-[0_18px_45px_rgba(0,90,49,0.16)]"
                          >
-                              <h3 className="text-2xl sm:text-3xl font-black text-white">Build skills that last</h3>
+                              <h3 className="text-2xl font-black leading-tight text-white sm:text-3xl">Build Skills That Last</h3>
                               <p className="mt-3 text-white/80 leading-relaxed">
-                                   Go beyond logistics. Raise kind, capable humans together.
+                                   Go beyond logistics. Raise kind, capable humans.
                               </p>
                               <p className="mt-3 text-white/80 leading-relaxed">
                                    Set age-based goals across 6 areas and track progress as a team.

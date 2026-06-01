@@ -7,20 +7,20 @@ import ProblemSection from "@/components/Problem";
 import HowItWorks from "@/components/How";
 import FeatureOverview from "@/components/Features";
 import TransformationSection from "@/components/Transformation";
-import EmotionalSection from "@/components/Emotional";
 import FAQ from "@/components/FAQ";
+import ImportantSection from "@/components/Important";
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
       <Container>
-        <ProblemSection />
         <FeatureOverview />
+        <ImportantSection />
+        <ProblemSection />
         <WhyChoose />
         <HowItWorks />
         <TransformationSection />
-        <EmotionalSection />
         <Benefits />
         <FAQ />
         <CTA />

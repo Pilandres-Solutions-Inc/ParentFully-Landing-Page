@@ -29,7 +29,7 @@ export default function EmotionalSection() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6 }}
-                              className="text-center mb-8"
+                              className="mx-auto mb-12 max-w-3xl text-center lg:mb-14"
                          >
                               <motion.div
                                    initial={{ opacity: 0, scale: 0.9 }}
@@ -38,18 +38,18 @@ export default function EmotionalSection() {
                                    className="inline-flex items-center gap-2 px-4 py-2 bg-[#005A31]/10 rounded-full border border-[#005A31]/20 mb-6"
                               >
                                    <Heart className="w-4 h-4 text-[#005A31]" />
-                                   <span className="text-sm text-[#005A31] font-medium">The truth</span>
+                                   <span className="text-sm font-bold text-[#005A31]">The Truth</span>
                               </motion.div>
 
-                              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed text-balance">
-                                   Your child does not need{" "}
-                                   <span className="line-through text-gray-400">perfect parents</span>
+                              <p className="text-2xl leading-snug text-gray-700 text-balance md:text-3xl">
+                                   Your Child Does Not Need{" "}
+                                   <span className="line-through text-gray-400">Perfect Parents</span>
                               </p>
-                              <p className="text-2xl md:text-3xl font-bold text-gray-800 mt-2 text-balance">
-                                   Your child needs clear, loving, consistent adults
-                              </p>
-                              <p className="text-xl text-gray-600 mt-4">
-                                   who know what they are building together.
+                              <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-black leading-[1.08] text-gray-900 text-balance sm:text-4xl md:text-5xl">
+                                   Your Child Needs Clear, Loving, Consistent Parents.
+                              </h2>
+                              <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+                                   Who Know What They Are Building Together.
                               </p>
                          </motion.div>
 
@@ -60,8 +60,8 @@ export default function EmotionalSection() {
                               transition={{ duration: 0.6, delay: 0.3 }}
                               className="bg-gradient-to-r from-[#005A31]/5 to-[#F38500]/5 rounded-2xl border border-[#005A31]/10 p-6 md:p-8 mb-8"
                          >
-                              <p className="text-center text-lg font-semibold text-gray-700 mb-6">
-                                   Parentfully helps you become that kind of family:
+                              <p className="mb-6 text-center text-lg font-bold leading-snug text-gray-700">
+                                   Parentfully Helps You Become That Kind of Family:
                               </p>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                    {familyTraits.map((trait, idx) => (

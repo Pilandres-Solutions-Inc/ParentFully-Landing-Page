@@ -51,7 +51,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
                 <div className="w-full lg:w-1/2 text-center lg:text-left">
                     <motion.div variants={childVariants}>
                         <SectionTitle>
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#005A31] leading-tight mb-6">
+                            <h2 className="mb-6 text-3xl font-black leading-[1.08] text-[#005A31] text-balance md:text-4xl lg:text-5xl">
                                 {title}
                             </h2>
                         </SectionTitle>
