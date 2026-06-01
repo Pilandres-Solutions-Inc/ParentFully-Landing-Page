@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
                 </h1>
 
                 <p className="mt-8 text-lg md:text-xl text-gray-600 max-w-2xl font-medium leading-relaxed">
-                    One playbook for everyone raising your child.
+                    One Playbook for Everyone Raising Your Child.
                 </p>
                 <p className="mt-4 text-base md:text-lg text-gray-600 max-w-3xl leading-relaxed">
                     Welcome to Parentfully the app that helps your whole parenting team raise great humans, together.
