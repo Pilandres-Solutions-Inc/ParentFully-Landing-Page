@@ -5,54 +5,64 @@ import {
      MessageSquare, FileText, DollarSign, Users
 } from "lucide-react";
 
-const features = [
+const dailyTools = [
      {
-          icon: <Clock className="w-7 h-7" />,
-          title: "Routines",
-          description: "Create clear daily routines that help children know what to do without constant reminders.",
-          color: "from-blue-500 to-blue-600"
+          icon: <Calendar className="w-6 h-6" />,
+          title: "One Family Calendar",
+          description: "School, activities, appointments, and pickups - synced for all."
      },
      {
-          icon: <Target className="w-7 h-7" />,
-          title: "Growth Goals",
-          description: "Set intentional goals for your child's confidence, habits, reading, responsibility, values, and life skills.",
-          color: "from-green-500 to-green-600"
+          icon: <Clock className="w-6 h-6" />,
+          title: "Consistent Routines",
+          description: "Bedtime, meals, and rules stay the same at every house."
      },
      {
-          icon: <Shield className="w-7 h-7" />,
-          title: "Discipline Plan",
-          description: "Build a calm and consistent behavior guidance plan before problems happen.",
-          color: "from-purple-500 to-purple-600"
+          icon: <MessageSquare className="w-6 h-6" />,
+          title: "Clear Handoffs",
+          description: "\"Who's doing dentist?\" \"Did meds happen?\" No more texts."
      },
      {
-          icon: <Calendar className="w-7 h-7" />,
-          title: "Family Schedule",
-          description: "Organize school, activities, appointments, pick-ups, drop-offs, holidays, and shared responsibilities.",
-          color: "from-orange-500 to-orange-600"
+          icon: <DollarSign className="w-6 h-6" />,
+          title: "Transparent Spending",
+          description: "Snap receipts. Auto-split kid expenses. No awkward asks."
      },
      {
-          icon: <MessageSquare className="w-7 h-7" />,
-          title: "Communication",
-          description: "Keep child-focused communication organized between parents, co-parents, and caregivers.",
-          color: "from-pink-500 to-pink-600"
+          icon: <FileText className="w-6 h-6" />,
+          title: "Family Agreements",
+          description: "Log decisions on screen time, discipline, and curfews. End the debates."
+     }
+];
+
+const skillAreas = [
+     {
+          icon: <Users className="w-6 h-6" />,
+          title: "Social Development",
+          description: "Friendship, teamwork, and handling conflict."
      },
      {
-          icon: <FileText className="w-7 h-7" />,
-          title: "Documentation",
-          description: "Record important behaviors, concerns, incidents, agreements, and observations clearly.",
-          color: "from-indigo-500 to-indigo-600"
+          icon: <Shield className="w-6 h-6" />,
+          title: "Emotional Growth",
+          description: "Naming feelings and building resilience."
      },
      {
-          icon: <DollarSign className="w-7 h-7" />,
-          title: "Child-Related Finances",
-          description: "Track expenses, payments, requests, reimbursements, approvals, and contributions.",
-          color: "from-emerald-500 to-emerald-600"
+          icon: <Target className="w-6 h-6" />,
+          title: "Character & Values",
+          description: "Kindness, honesty, and responsibility."
      },
      {
-          icon: <Users className="w-7 h-7" />,
-          title: "Caregiver Alignment",
-          description: "Share the child's plan with trusted adults so care stays consistent even when you aren't there.",
-          color: "from-rose-500 to-rose-600"
+          icon: <Clock className="w-6 h-6" />,
+          title: "Life Skills",
+          description: "From tying shoes to budgeting money."
+     },
+     {
+          icon: <FileText className="w-6 h-6" />,
+          title: "Academic & Learning",
+          description: "Focus, curiosity, and study habits."
+     },
+     {
+          icon: <Shield className="w-6 h-6" />,
+          title: "Health & Safety",
+          description: "Body boundaries, online safety, and healthy choices."
      }
 ];
 
@@ -68,9 +78,12 @@ export default function FeatureOverview() {
                          className="text-center mb-12 max-w-4xl mx-auto"
                     >
                          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900 text-balance">
-                              Everything you need to{" "}
-                              <span className="text-[#F38500]">parent with more clarity</span>
+                              What Parentfully{" "}
+                              <span className="text-[#F38500]">helps you do</span>
                          </h2>
+                         <p className="mt-5 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                              Make the day easier while building the life skills that last.
+                         </p>
                     </motion.div>
 
                     <motion.div
@@ -78,36 +91,60 @@ export default function FeatureOverview() {
                          whileInView={{ opacity: 1, y: 0 }}
                          viewport={{ once: true }}
                          transition={{ duration: 0.6, delay: 0.2 }}
-                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                         className="grid grid-cols-1 lg:grid-cols-2 gap-6"
                     >
-                         {features.map((feature, idx) => (
-                              <motion.div
-                                   key={idx}
-                                   initial={{ opacity: 0, y: 20 }}
-                                   whileInView={{ opacity: 1, y: 0 }}
-                                   viewport={{ once: true }}
-                                   transition={{ delay: idx * 0.05 }}
-                                   className="group relative bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                              >
-                                   {/* Icon */}
-                                   <div className={`w-14 h-14 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform`}>
-                                        {feature.icon}
-                                   </div>
+                         <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-[0_18px_45px_rgba(15,23,42,0.06)]"
+                         >
+                              <h3 className="text-2xl sm:text-3xl font-black text-[#005A31]">Make every day easier</h3>
+                              <p className="mt-3 text-gray-600 leading-relaxed">One shared playbook so your team runs smoothly.</p>
+                              <div className="mt-7 space-y-4">
+                                   {dailyTools.map((feature, idx) => (
+                                        <div key={idx} className="flex gap-4 rounded-xl bg-gray-50 p-4">
+                                             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#E2FDF8] text-[#005A31]">
+                                                  {feature.icon}
+                                             </div>
+                                             <div>
+                                                  <h4 className="font-black text-gray-900">{feature.title}</h4>
+                                                  <p className="mt-1 text-sm leading-relaxed text-gray-600">{feature.description}</p>
+                                             </div>
+                                        </div>
+                                   ))}
+                              </div>
+                         </motion.div>
 
-                                   {/* Title */}
-                                   <h3 className="text-xl font-bold text-gray-800 mb-2">
-                                        {feature.title}
-                                   </h3>
-
-                                   {/* Description */}
-                                   <p className="text-gray-600 text-sm leading-relaxed">
-                                        {feature.description}
-                                   </p>
-
-                                   {/* Decorative line */}
-                                   <div className="absolute bottom-0 left-6 right-6 h-1 bg-gradient-to-r from-[#005A31] to-[#F38500] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                              </motion.div>
-                         ))}
+                         <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 0.1 }}
+                              className="rounded-2xl border border-[#005A31]/10 bg-[#005A31] p-6 sm:p-8 shadow-[0_18px_45px_rgba(0,90,49,0.16)]"
+                         >
+                              <h3 className="text-2xl sm:text-3xl font-black text-white">Build skills that last</h3>
+                              <p className="mt-3 text-white/80 leading-relaxed">
+                                   Go beyond logistics. Raise kind, capable humans together.
+                              </p>
+                              <p className="mt-3 text-white/80 leading-relaxed">
+                                   Set age-based goals across 6 areas and track progress as a team.
+                              </p>
+                              <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                   {skillAreas.map((feature, idx) => (
+                                        <div key={idx} className="rounded-xl bg-white/10 p-4">
+                                             <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-[#F38500]">
+                                                  {feature.icon}
+                                             </div>
+                                             <h4 className="font-black text-white">{feature.title}</h4>
+                                             <p className="mt-1 text-sm leading-relaxed text-white/75">{feature.description}</p>
+                                        </div>
+                                   ))}
+                              </div>
+                              <p className="mt-6 rounded-xl bg-white px-4 py-3 text-sm font-black text-[#005A31]">
+                                   Smart suggestions for ages 2-18. Celebrate wins. Stay consistent without nagging.
+                              </p>
+                         </motion.div>
                     </motion.div>
                </div>
           </section>

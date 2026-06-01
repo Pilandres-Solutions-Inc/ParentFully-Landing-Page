@@ -12,7 +12,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
             <div className="bg-white rounded-2xl shadow-lg p-8 max-w-md mx-auto text-center relative">
                 <button
                     onClick={onClose}
-                    className="absolute top-3 right-3 text-red-900 hover:text-gray-900 text-3xl"
+                    className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#005A31] text-2xl leading-none text-white hover:bg-[#005A31]/90"
                 >
                     ×
                 </button>
@@ -29,7 +29,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
                         href="https://chat.whatsapp.com/L3mNi85CQHB20wVUIRv1xv?mode=ems_copy_t"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-green-500 hover:bg-green-600 transition-colors shadow-md font-semibold text-white"
+                        className="flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#005A31] hover:bg-[#005A31]/90 transition-colors shadow-md font-semibold text-white"
                     >
                         <FaWhatsapp size={20} /> WhatsApp
                     </a>
@@ -37,7 +37,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
                         href="https://t.me/+NJfluxRPQsBlZGI5"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 transition-colors shadow-md font-semibold text-white"
+                        className="flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#005A31] hover:bg-[#005A31]/90 transition-colors shadow-md font-semibold text-white"
                     >
                         <FaTelegramPlane size={20} /> Telegram
                     </a>

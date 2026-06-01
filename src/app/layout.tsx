@@ -12,6 +12,19 @@ const sourceSans = Source_Sans_3({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
+  keywords: [
+    "Parenting app",
+    "family organizer",
+    "shared calendar",
+    "child development",
+    "life skills for kids",
+    "chore tracking",
+    "parenting team",
+    "nanny app",
+    "emotional intelligence kids",
+    "character education",
+    "family schedule",
+  ],
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,

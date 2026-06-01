@@ -173,9 +173,9 @@ const MerchSlideshow: React.FC = () => {
                                              <motion.button
                                                   whileHover={{ scale: 1.1 }}
                                                   whileTap={{ scale: 0.9 }}
-                                                  className="absolute top-4 right-4 z-10 p-2 sm:p-2.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors"
+                                                  className="absolute top-4 right-4 z-10 p-2 sm:p-2.5 bg-[#005A31] text-white backdrop-blur-sm rounded-full shadow-lg hover:bg-[#005A31]/90 transition-colors"
                                              >
-                                                  <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-pink-500" />
+                                                  <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
                                              </motion.button>
                                         </div>
                                         {/* Content - Responsive padding */}
@@ -208,12 +208,11 @@ const MerchSlideshow: React.FC = () => {
                                              >
                                                   <span className="text-xs sm:text-sm text-gray-500">Available Colors:</span>
                                                   <div className="flex gap-1.5 sm:gap-2">
-                                                       {currentItem.colors.map((color, idx) => (
+                                                       {currentItem.colors.map((_, idx) => (
                                                             <motion.button
                                                                  key={idx}
                                                                  whileHover={{ scale: 1.2 }}
-                                                                 className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-white shadow-md"
-                                                                 style={{ backgroundColor: color }}
+                                                                 className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-white bg-[#005A31] shadow-md"
                                                             />
                                                        ))}
                                                   </div>
@@ -232,10 +231,7 @@ const MerchSlideshow: React.FC = () => {
                                                   <motion.button
                                                        whileHover={{ scale: 1.05 }}
                                                        whileTap={{ scale: 0.95 }}
-                                                       className={`flex items-center gap-2 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base ${currentItem.id === 1 ? 'bg-gradient-to-r from-orange-600 to-red-600' :
-                                                            currentItem.id === 2 ? 'bg-gradient-to-r from-green-600 to-emerald-600' :
-                                                                 'bg-gradient-to-r from-gray-600 to-stone-600'
-                                                            } text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-shadow`}
+                                                       className="flex items-center gap-2 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base bg-[#005A31] text-white rounded-full font-semibold shadow-lg hover:bg-[#005A31]/90 hover:shadow-xl transition-shadow"
                                                   >
                                                        <ShoppingBag className="w-4 h-4" />
                                                        Buy Now
@@ -250,18 +246,18 @@ const MerchSlideshow: React.FC = () => {
                                    whileHover={{ scale: 1.1 }}
                                    whileTap={{ scale: 0.9 }}
                                    onClick={prevSlide}
-                                   className="absolute left-0 top-1/2 -translate-x-3 sm:-translate-x-5 md:-translate-x-8 lg:-translate-x-12 -translate-y-1/2 z-20 p-2 sm:p-3 bg-white rounded-full shadow-xl hover:shadow-2xl transition-shadow"
+                                   className="absolute left-0 top-1/2 -translate-x-3 sm:-translate-x-5 md:-translate-x-8 lg:-translate-x-12 -translate-y-1/2 z-20 p-2 sm:p-3 bg-[#005A31] rounded-full text-white shadow-xl hover:bg-[#005A31]/90 hover:shadow-2xl transition-shadow"
                               >
-                                   <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+                                   <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                               </motion.button>
 
                               <motion.button
                                    whileHover={{ scale: 1.1 }}
                                    whileTap={{ scale: 0.9 }}
                                    onClick={nextSlide}
-                                   className="absolute right-0 top-1/2 translate-x-3 sm:translate-x-5 md:translate-x-8 lg:translate-x-12 -translate-y-1/2 z-20 p-2 sm:p-3 bg-white rounded-full shadow-xl hover:shadow-2xl transition-shadow"
+                                   className="absolute right-0 top-1/2 translate-x-3 sm:translate-x-5 md:translate-x-8 lg:translate-x-12 -translate-y-1/2 z-20 p-2 sm:p-3 bg-[#005A31] rounded-full text-white shadow-xl hover:bg-[#005A31]/90 hover:shadow-2xl transition-shadow"
                               >
-                                   <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+                                   <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                               </motion.button>
                          </div>
                     </div>
@@ -277,11 +273,8 @@ const MerchSlideshow: React.FC = () => {
                                         setCurrentIndex(idx);
                                    }}
                                    className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${idx === currentIndex
-                                        ? `w-6 sm:w-8 ${currentItem.id === 1 ? 'bg-gradient-to-r from-orange-600 to-red-600' :
-                                             currentItem.id === 2 ? 'bg-gradient-to-r from-green-600 to-emerald-600' :
-                                                  'bg-gradient-to-r from-gray-600 to-stone-600'
-                                        }`
-                                        : "w-1.5 sm:w-2 bg-gray-300 hover:bg-gray-400"
+                                        ? "w-6 sm:w-8 bg-[#005A31]"
+                                        : "w-1.5 sm:w-2 bg-[#005A31]/30 hover:bg-[#005A31]/50"
                                         }`}
                               />
                          ))}

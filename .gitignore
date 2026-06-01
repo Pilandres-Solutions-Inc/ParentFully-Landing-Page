@@ -31,6 +31,17 @@ yarn-error.log*
 # vercel
 .vercel
 .npmrc
+.txt
+*.temp
+*.xml
+*.json
+*.yaml
+*.yml
+*.csv
+*.txt
+*.log
+*.err
+*.warn
 
 # typescript
 *.tsbuildinfo

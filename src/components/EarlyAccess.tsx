@@ -18,7 +18,7 @@ const EarlyAccess: React.FC = () => {
 
                 {/* Button */}
                 <Link href="#cta" scroll={true}>
-                    <button className="px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition-colors">
+                    <button className="px-6 py-3 rounded-lg bg-[#005A31] text-white font-semibold shadow-md hover:bg-[#005A31]/90 transition-colors">
                         Join Now
                     </button>
                 </Link>

@@ -21,7 +21,7 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
                     </span>
                     {typeof price === 'number' && <span className="text-lg font-normal text-gray-600">/mo</span>}
                 </p>
-                <button className={clsx("w-full py-3 px-4 rounded-full transition-colors", { "bg-primary hover:bg-primary-accent": highlight, "bg-hero-background hover:bg-gray-200": !highlight })}>
+                <button className="w-full py-3 px-4 rounded-full bg-[#005A31] text-white transition-colors hover:bg-[#005A31]/90">
                     Get Started
                 </button>
             </div>

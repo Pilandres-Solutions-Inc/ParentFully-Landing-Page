@@ -120,7 +120,7 @@ const ContactCTA: React.FC = () => {
                             className="mt-8 pt-6 border-t border-white/10"
                         >
                             <Link href="/download">
-                                <button className="group inline-flex items-center justify-center gap-3 px-6 py-3 bg-[#F38500] hover:bg-[#d67500] text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <button className="group inline-flex items-center justify-center gap-3 px-6 py-3 bg-[#F38500] hover:bg-[#F38500]/90 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
                                     <span>Download Parentfully for Free</span>
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </button>
@@ -152,7 +152,7 @@ const ContactCTA: React.FC = () => {
                                     <p className="text-gray-500 mt-2">We&apos;ll get back to you shortly.</p>
                                     <button
                                         onClick={() => setSubmitted(false)}
-                                        className="mt-8 text-[#F38500] font-bold underline"
+                                        className="mt-8 rounded-full bg-[#F38500] px-5 py-3 font-bold text-white hover:bg-[#F38500]/90"
                                     >
                                         Send another message
                                     </button>
@@ -226,7 +226,7 @@ const ContactCTA: React.FC = () => {
                                         <button
                                             type="submit"
                                             disabled={loading}
-                                            className="w-full py-5 bg-[#F38500] hover:bg-[#d67500] text-white font-black text-lg rounded-xl shadow-lg transition-all active:scale-95 disabled:opacity-50"
+                                            className="w-full py-5 bg-[#F38500] hover:bg-[#F38500]/90 text-white font-black text-lg rounded-xl shadow-lg transition-all active:scale-95 disabled:opacity-50"
                                         >
                                             {loading ? "Sending..." : "Send Message"}
                                         </button>

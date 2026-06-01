@@ -17,21 +17,21 @@ interface WhatData {
 
 export const whatIsParentfully: WhatData[] = [
     {
-        title: "One system for the way real families parent",
-        description: "Parentfully is a family operating system that brings the most important parts of parenting into one place.",
+        title: "Welcome to Parentfully",
+        description: "Welcome to Parentfully - the app that helps your whole parenting team raise great humans, together.",
         bullets: [
             {
-                title: "Built for Real Life",
-                description: "Whether you're parenting with a partner, alone, co-parenting across two homes, or working with a caregiver—Parentfully helps everyone stay clear on what matters.",
+                title: "Daily life, shared clearly",
+                description: "The app that keeps your whole parenting team aligned around daily routines and the life skills that matter.",
                 icon: <FiHome size={24} />
             },
             {
-                title: "Everything You Need",
-                description: "Your routines, goals, discipline plan, schedules, responsibilities, communication, and child's growth. All in one place.",
+                title: "One child-centered playbook",
+                description: "Because alignment is not just about schedules. It is about raising them well.",
                 icon: <FiStar size={24} />
             }
         ],
-        imageSrc: "/images/family.webp"
+        imageSrc: "/images/parenting-team-phone.png"
     }
 ];
 
@@ -74,12 +74,12 @@ export const WhatIsParentfullySection = () => {
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#005A31]/10 rounded-full mb-6">
                             <FiHeart className="w-4 h-4 text-[#005A31]" />
-                            <span className="text-sm font-semibold text-[#005A31] tracking-wide">What Parentfully Is</span>
+                            <span className="text-sm font-semibold text-[#005A31] tracking-wide">Welcome to Parentfully</span>
                         </div>
 
                         <h2 className="text-4xl sm:text-5xl font-black text-[#005A31] leading-tight mb-4 text-balance">
-                            One system for{" "}
-                            <span className="text-[#F38500]">real family life</span>
+                            The app for your{" "}
+                            <span className="text-[#F38500]">whole parenting team</span>
                         </h2>
 
                         <p className="text-lg text-gray-600 leading-relaxed mb-8">
@@ -114,7 +114,7 @@ export const WhatIsParentfullySection = () => {
                         {/* Divider with tagline */}
                         <div className="mt-8 border-t border-gray-100 pt-6">
                             <p className="text-sm font-medium text-gray-500">
-                                Parentfully: more structure, more clarity, less chaos.
+                                Shared routines, child development goals, schedules, expenses, permissions, and progress in one place.
                             </p>
                         </div>
                     </motion.div>

@@ -15,9 +15,12 @@ const Benefits: React.FC = () => {
                         className="space-y-4"
                     >
                         <h2 className="text-4xl md:text-6xl font-black text-[#005A31] leading-[1.1] text-balance">
-                            What Parentfully <br />
-                            <span className="text-[#F38500]">helps you do</span>
+                            Built for the whole <br />
+                            <span className="text-[#F38500]">parenting team</span>
                         </h2>
+                        <p className="mx-auto max-w-2xl text-lg text-gray-600 leading-relaxed">
+                            Because alignment isn't just about schedules. It's about raising them well.
+                        </p>
                         <div className="h-1.5 w-24 bg-[#E2FDF8] mx-auto rounded-full" />
                     </motion.div>
                 </div>

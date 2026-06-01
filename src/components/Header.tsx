@@ -34,7 +34,7 @@ const Header: React.FC = () => {
                         : 'bg-transparent rounded-none'
                         }`}
                 >
-                    {/* Enhanced Logo - Made significantly larger */}
+                    {/* Enhanced Logo */}
                     <Link href="/" className="relative z-10 flex-shrink-0 transition-transform active:scale-95">
                         <Image
                             src="/icons/ParentFully.png"
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                                 <li key={item.text}>
                                     <Link
                                         href={item.url}
-                                        className="text-[15px] font-semibold text-slate-700 hover:text-orange-500 transition-colors tracking-tight"
+                                        className="text-[17px] font-semibold text-slate-700 hover:text-orange-500 transition-colors tracking-tight"
                                     >
                                         {item.text}
                                     </Link>
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
 
                         <Link
                             href="/download"
-                            className="bg-orange-500 hover:bg-orange-600 text-white px-7 py-3 rounded-xl text-[15px] font-bold shadow-[0_10px_20px_-10px_rgba(243,133,0,0.5)] transition-all hover:-translate-y-0.5 active:translate-y-0"
+                            className="bg-[#005A31] hover:bg-[#005A31]/90 text-white px-7 py-3 rounded-xl text-[15px] font-bold shadow-[0_10px_20px_-10px_rgba(0,90,49,0.5)] transition-all hover:-translate-y-0.5 active:translate-y-0"
                         >
                             Download Now
                         </Link>
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
                     {/* Mobile Menu Button - Minimalist Style */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-3 text-slate-800 bg-slate-100/50 rounded-xl hover:bg-slate-200/50 transition-colors"
+                        className="md:hidden p-3 text-white bg-[#005A31] rounded-xl hover:bg-[#005A31]/90 transition-colors"
                         aria-label="Toggle Menu"
                     >
                         {isOpen ? <HiOutlineXMark size={24} /> : <HiBars3 size={24} />}
@@ -108,7 +108,7 @@ const Header: React.FC = () => {
                                 <Link
                                     href="#cta"
                                     onClick={() => setIsOpen(false)}
-                                    className="block w-full text-center bg-orange-500 text-white py-4 rounded-xl text-lg font-black shadow-lg"
+                                    className="block w-full text-center bg-[#005A31] text-white py-4 rounded-xl text-lg font-black shadow-lg"
                                 >
                                     Download App
                                 </Link>

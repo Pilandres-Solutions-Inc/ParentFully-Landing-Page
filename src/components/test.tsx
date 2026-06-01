@@ -39,7 +39,7 @@ const CTA: React.FC = () => {
                               onClick={handleScore}
                               disabled={loading}
                               className={`w-full mt-6 px-6 py-3 rounded-lg font-semibold shadow-md transition-colors
-                ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-orange-500 hover:bg-orange-600 text-white"}
+                ${loading ? "bg-[#F38500]/60 cursor-not-allowed text-white" : "bg-[#F38500] hover:bg-[#F38500]/90 text-white"}
               `}
                               aria-label={loading ? "Submitting your information" : "Join waitlist"}
                          >
