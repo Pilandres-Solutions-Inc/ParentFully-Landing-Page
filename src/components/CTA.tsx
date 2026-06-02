@@ -4,8 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
-import Link from "next/link";
-import { ArrowRight, CheckCircle, Heart, Shield, Clock, Target } from "lucide-react";
+import { CheckCircle, Heart, Shield, Clock, Target } from "lucide-react";
 
 const ContactCTA: React.FC = () => {
     const [loading, setLoading] = useState(false);
@@ -53,22 +52,21 @@ const ContactCTA: React.FC = () => {
     ];
 
     return (
-        <section id="contact" className="py-20 lg:py-32 px-6 bg-gradient-to-br from-white to-gray-50">
-            <div className="max-w-6xl mx-auto relative rounded-2xl bg-[#005A31] overflow-hidden shadow-[0_32px_80px_rgba(0,90,49,0.24)]">
+        <section id="contact" className="bg-gradient-to-br from-white to-gray-50 px-4 py-20 sm:px-6 lg:py-28">
+            <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl bg-[#005A31] shadow-[0_32px_80px_rgba(0,90,49,0.24)]">
 
                 {/* Modern Background Accents */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-[#F38500] opacity-20 blur-[120px] -mr-32 -mt-32" />
                 <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-400 opacity-10 blur-[100px] -ml-20 -mb-20" />
 
-                <div className="relative z-10 flex flex-col lg:flex-row items-stretch">
+                <div className="relative z-10 grid items-stretch lg:grid-cols-[0.95fr_1.05fr]">
 
-                    {/* --- Left Side: Text & CTA --- */}
-                    <div className="w-full lg:w-1/2 p-10 lg:p-14 flex flex-col justify-between">
-                        <div>
+                    <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12">
+                        <div className="max-w-xl">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6"
+                                className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm"
                             >
                                 <Heart className="w-4 h-4 text-[#F38500]" />
                                 <span className="text-sm font-bold text-white/90">Start Your Journey</span>
@@ -77,7 +75,7 @@ const ContactCTA: React.FC = () => {
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                className="text-4xl font-black leading-[1.05] text-white text-balance md:text-5xl"
+                                className="text-4xl font-black leading-[1.05] text-white text-balance sm:text-5xl"
                             >
                                 Start Building Your{" "}
                                 <span className="text-[#F38500]">Family System</span>
@@ -89,67 +87,40 @@ const ContactCTA: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
-                                className="mt-6 text-lg text-emerald-50/80 leading-relaxed"
+                                className="mt-6 text-lg leading-relaxed text-emerald-50/85"
                             >
                                 Parentfully helps you plan, guide, delegate, and stay aligned, so your child can grow with more consistency, confidence, and support.
                             </motion.p>
 
-                            {/* Benefits Grid */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="mt-8 grid grid-cols-2 gap-3"
+                                className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2"
                             >
                                 {benefits.map((benefit, idx) => (
-                                    <div key={idx} className="flex items-center gap-2">
-                                        <div className="w-7 h-7 rounded-full bg-[#F38500]/20 flex items-center justify-center text-[#F38500]">
+                                    <div key={idx} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/10 p-3">
+                                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F38500]/20 text-[#F38500]">
                                             {benefit.icon}
                                         </div>
-                                        <span className="text-white/80 text-sm">{benefit.text}</span>
+                                        <span className="text-sm font-semibold leading-snug text-white/85">{benefit.text}</span>
                                     </div>
                                 ))}
                             </motion.div>
                         </div>
-
-                        {/* Download CTA */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            className="mt-8 pt-6 border-t border-white/10"
-                        >
-                            <Link href="/download">
-                                <button className="group inline-flex items-center justify-center gap-3 px-6 py-3 bg-[#F38500] hover:bg-[#F38500]/90 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
-                                    <span>Download Parentfully for Free</span>
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                            </Link>
-                            <div className="flex items-center gap-4 mt-4 text-white/50 text-xs">
-                                <div className="flex items-center gap-1">
-                                    <CheckCircle className="w-3 h-3" />
-                                    <span>Free to download</span>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    <CheckCircle className="w-3 h-3" />
-                                    <span>No credit card</span>
-                                </div>
-                            </div>
-                        </motion.div>
                     </div>
 
-                    {/* --- Right Side: Form --- */}
-                    <div className="w-full lg:w-1/2 p-6 lg:p-12 bg-white/5 backdrop-blur-sm">
-                        <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl">
+                    <div className="bg-white/5 p-4 backdrop-blur-sm sm:p-6 lg:p-10">
+                        <div className="rounded-2xl bg-white p-5 shadow-2xl sm:p-8 lg:p-10">
                             {submitted ? (
                                 <motion.div
                                     initial={{ scale: 0.9, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
-                                    className="text-center py-20"
+                                    className="py-16 text-center sm:py-20"
                                 >
                                     <CheckCircle className="mx-auto mb-6 h-12 w-12 text-[#005A31]" />
                                     <h3 className="text-2xl font-black leading-tight text-[#005A31]">Message Sent!</h3>
-                                    <p className="text-gray-500 mt-2">We&apos;ll get back to you shortly.</p>
+                                    <p className="mt-2 text-gray-500">We&apos;ll get back to you shortly.</p>
                                     <button
                                         onClick={() => setSubmitted(false)}
                                         className="mt-8 rounded-full bg-[#F38500] px-5 py-3 font-bold text-white hover:bg-[#F38500]/90"
@@ -159,12 +130,12 @@ const ContactCTA: React.FC = () => {
                                 </motion.div>
                             ) : (
                                 <>
-                                    <div className="text-center mb-6">
+                                    <div className="mb-6 text-center">
                                         <h3 className="text-2xl font-black leading-tight text-[#005A31]">Have Questions?</h3>
                                         <p className="text-gray-500 text-sm mt-1">We&apos;re here to help</p>
                                     </div>
                                     <form onSubmit={handleSubmit} className="space-y-5">
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                                             <div className="space-y-1">
                                                 <input
                                                     type="text"

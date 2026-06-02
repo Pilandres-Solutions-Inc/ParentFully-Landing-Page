@@ -56,14 +56,10 @@ export default function WhoItsFor() {
                             className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6"
                         >
                             <Users className="w-4 h-4 text-orange-400" />
-                            <span className="text-sm font-bold text-white/90">Who It Is For</span>
+                            <span className="text-xl font-bold text-white/90">Who It Is For</span>
                         </motion.div>
-
-                        <h2 className="mx-auto max-w-4xl text-4xl font-black leading-[1.05] text-white text-balance sm:text-5xl md:text-6xl">
-                            It Takes a Village. The Village Needs <span className="text-orange-400">One App.</span>
-                        </h2>
                         <p className="mt-6 text-lg sm:text-xl text-gray-100 max-w-2xl mx-auto leading-relaxed">
-                            Parentfully is built for every family with more than one moving part.
+                        Parentfully is built for families who want to move beyond survival mode and winging it, and create a more intentional, organized, and consistent approach to raising thriving children.                        
                         </p>
                     </motion.div>
 
@@ -73,7 +69,7 @@ export default function WhoItsFor() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
+                        className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2"
                     >
                         {audienceTypes.map((type, idx) => (
                             <motion.div
@@ -82,16 +78,16 @@ export default function WhoItsFor() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.05 }}
-                                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300 group"
+                                className="group rounded-2xl border border-white/25 bg-white/[0.16] p-5 shadow-[0_18px_45px_rgba(0,0,0,0.12)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.22] hover:shadow-[0_24px_55px_rgba(0,0,0,0.16)] sm:p-6"
                             >
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <div className="flex items-start gap-4">
+                                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-400/20 text-orange-300 ring-1 ring-orange-200/30 transition-transform group-hover:scale-110">
                                         {type.icon}
                                     </div>
                                     <div>
-                                        <h3 className="text-sm font-black leading-snug text-white">{type.title}</h3>
-                                        <p className="mt-1 text-orange-100 text-xs font-semibold leading-relaxed">{type.quote}</p>
-                                        <p className="mt-2 text-gray-300 text-xs leading-relaxed">{type.description}</p>
+                                        <h3 className="text-xl font-black leading-tight text-white">{type.title}</h3>
+                                        <p className="mt-2 text-base font-bold leading-snug text-orange-100">{type.quote}</p>
+                                        <p className="mt-3 text-sm font-medium leading-relaxed text-white/80">{type.description}</p>
                                     </div>
                                 </div>
                             </motion.div>

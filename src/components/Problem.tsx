@@ -27,6 +27,7 @@ export default function ProblemSection() {
                               transition={{ duration: 0.6 }}
                               className="mb-14 text-center lg:mb-16"
                          >
+                              {/**
                               <motion.div
                                    initial={{ opacity: 0, scale: 0.9 }}
                                    whileInView={{ opacity: 1, scale: 1 }}
@@ -36,17 +37,24 @@ export default function ProblemSection() {
                                    <AlertCircle className="w-4 h-4 text-red-500" />
                                    <span className="text-sm font-bold text-red-600">The Reality</span>
                               </motion.div>
+                               */}
 
                               <h2 className="mx-auto max-w-4xl text-4xl font-black leading-[1.05] text-gray-900 text-balance sm:text-5xl md:text-6xl">
-                                   Parenting Breaks Down When Every Adult Has a{" "}
-                                   <span className="text-red-500">Different Playbook</span>
+                              Raise Them Together, Raise Them Well.
                               </h2>
+                              <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">Keep everyone caring for your child aligned
+                              </p>
+
+                              <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">Parenting Breaks Down When Every Adult Has a Different Playbook
+                              </p>
+
                               <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                                    Between two working parents, daycare, grandparents, and sitters, your child gets different rules, different routines, and different expectations every day.
                               </p>
                               <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                                    And the big stuff, like kindness, resilience, and real-world skills, gets lost in the daily chaos.
                               </p>
+                             
                          </motion.div>
 
                          {/* Struggle List */}
@@ -94,7 +102,7 @@ export default function ProblemSection() {
                                    Parentfully changes that.
                               </p>
                               <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                                   It gives everyone raising your child one shared place for routines, schedules, expenses, goals, agreements, and progress, so the solution is clear before the day gets chaotic.
+                              it takes a village, the village needs one app. Download now
                               </p>
                               <Link href="/download">
                                    <button className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#005A31] hover:bg-[#005A31]/90 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">

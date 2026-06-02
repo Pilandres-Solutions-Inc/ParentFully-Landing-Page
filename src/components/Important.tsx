@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 const savedIdeas = [
-     { icon: <Sparkles className="h-5 w-5" />, text: "You save helpful posts." },
-     { icon: <BookOpen className="h-5 w-5" />, text: "You buy books." },
-     { icon: <GraduationCap className="h-5 w-5" />, text: "You take courses." },
+     { icon: <Sparkles className="h-5 w-5" />, text: "You save helpful parenting posts." },
+     { icon: <BookOpen className="h-5 w-5" />, text: "You buy parenting books." },
+     { icon: <GraduationCap className="h-5 w-5" />, text: "You take parenting courses." },
      { icon: <NotebookTabs className="h-5 w-5" />, text: "You download guides." },
      { icon: <Lightbulb className="h-5 w-5" />, text: "You learn powerful parenting strategies." }
 ];
@@ -26,7 +26,7 @@ const savedIdeas = [
 const familySystem = [
      { icon: <Repeat2 className="h-5 w-5" />, text: "routines" },
      { icon: <Target className="h-5 w-5" />, text: "goals" },
-     { icon: <Bell className="h-5 w-5" />, text: "reminders" },
+     { icon: <Bell className="h-5 w-5" />, text: "discipline" },
      { icon: <CheckCircle2 className="h-5 w-5" />, text: "daily actions" }
 ];
 
@@ -38,7 +38,7 @@ const wholeChildAreas = [
      "academically"
 ];
 
-export default function ImportantSection() {
+export default function EverydayActionSection() {
      return (
           <section className="relative overflow-hidden bg-[#005A31] py-20 lg:py-28">
                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(243,133,0,0.22),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(226,253,248,0.12),transparent_32%)]" />
@@ -71,8 +71,7 @@ export default function ImportantSection() {
                               className="rounded-2xl border border-white/15 bg-white p-5 shadow-[0_28px_80px_rgba(0,0,0,0.18)] sm:p-7"
                          >
                               <p className="mb-5 text-sm font-black uppercase text-[#005A31]">
-                                   What parents already do
-                              </p>
+                                   What you are probably already doing </p>
 
                               <div className="space-y-3">
                                    {savedIdeas.map((item, idx) => (
@@ -137,7 +136,7 @@ export default function ImportantSection() {
 
                               <div className="rounded-2xl bg-white p-5">
                                    <p className="text-lg font-semibold leading-relaxed text-gray-700">
-                                        So your parenting wisdom becomes routines, goals, reminders, and daily actions that help you raise a whole child who thrives emotionally, socially, mentally, morally, and academically.
+                                        So your parenting wisdom becomes routines, goals, disciplines, and daily actions that help you raise a whole child who thrives emotionally, socially, mentally, morally, and academically.
                                    </p>
                                    <div className="mt-5 flex flex-wrap gap-2">
                                         {wholeChildAreas.map((area) => (

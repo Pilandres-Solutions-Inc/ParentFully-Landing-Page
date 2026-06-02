@@ -1,141 +1,188 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight, PlayCircle, Star, CheckCircle2 } from 'lucide-react';
-import { downloadLinks, platformFeatures } from '@/data/download';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+     ArrowRight,
+     CheckCircle2,
+     Clock,
+     Download,
+     ShieldCheck,
+     Users
+} from "lucide-react";
+import { downloadLinks, downloadStats, platformFeatures } from "@/data/download";
 
-const DownloadPage = () => {
+const highlights = [
+     { icon: <Users className="h-5 w-5" />, text: "Invite your parenting team" },
+     { icon: <Clock className="h-5 w-5" />, text: "Build routines in minutes" },
+     { icon: <ShieldCheck className="h-5 w-5" />, text: "Keep family details organized" }
+];
+
+const platforms = [
+     {
+          name: "iOS App",
+          eyebrow: "TestFlight",
+          href: downloadLinks.apple,
+          icon: "/icons/apple5.png",
+          iconClassName: "invert",
+          button: "Download for iPhone",
+          theme: "light",
+          feature: platformFeatures[0]
+     },
+     {
+          name: "Android App",
+          eyebrow: "Internal Test",
+          href: downloadLinks.google,
+          icon: "/icons/google.png",
+          iconClassName: "",
+          button: "Get it on Play Store",
+          theme: "dark",
+          feature: platformFeatures[1]
+     }
+];
+
+export default function DownloadPage() {
      return (
-          <section className="relative min-h-screen bg-[#FDFCFB] overflow-hidden pt-32 pb-24">
-               {/* Ambient Background Elements */}
-               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-100/40 blur-[120px] rounded-full -mr-48 -mt-48 -z-10 animate-pulse" />
-               <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#E2FDF8]/50 blur-[120px] rounded-full -ml-48 -mb-48 -z-10" />
+          <section className="relative min-h-screen overflow-hidden bg-[#E2FDF8] px-4 pb-20 pt-32 sm:px-6 lg:pb-28 lg:pt-40">
+               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.92),rgba(255,255,255,0.24)_42%,transparent_72%)]" />
+               <div className="absolute -left-24 top-48 h-96 w-96 rounded-full bg-[#005A31]/10 blur-[120px]" />
+               <div className="absolute -right-24 top-24 h-96 w-96 rounded-full bg-[#F38500]/15 blur-[120px]" />
+               <div className="absolute bottom-0 left-1/2 h-72 w-[760px] -translate-x-1/2 rounded-full bg-white/45 blur-[120px]" />
 
-               <div className="max-w-7xl mx-auto px-6">
-                    {/* --- Hero Section --- */}
-                    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-24">
-
-                         {/* Left: Text Hook */}
-                         <div className="w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-1">
-                              <motion.div
-                                   initial={{ opacity: 0, y: 30 }}
-                                   animate={{ opacity: 1, y: 0 }}
-                                   transition={{ duration: 0.8 }}
-                              >
-                                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100 mb-8">
-                                        <div className="flex -space-x-1">
-                                             {[1, 2, 3, 4, 5].map((s) => (
-                                                  <Star key={s} size={14} className="fill-[#F38500] text-[#F38500]" />
-                                             ))}
-                                        </div>
-                                        <span className="text-sm font-black text-[#005A31] ml-2 uppercase">Trusted by 10k+ Parents</span>
-                                   </div>
-
-                                   <h1 className="text-6xl md:text-8xl font-black text-[#005A31] leading-[0.9] mb-8 text-balance">
-                                        Start Your <br />
-                                        <span className="text-[#F38500]">Stress-Free</span> <br />
-                                        Journey.
-                                   </h1>
-
-                                   <div className="space-y-4 mb-10">
-                                        {["End-to-end encrypted messaging", "Real-time calendar syncing", "No-conflict communication"].map((feature, idx) => (
-                                             <div key={idx} className="flex items-center justify-center lg:justify-start gap-3 text-gray-600 font-semibold">
-                                                  <CheckCircle2 className="text-[#005A31]" size={20} />
-                                                  <span>{feature}</span>
-                                             </div>
-                                        ))}
-                                   </div>
-                              </motion.div>
-                         </div>
-
-                         {/* Right: Premium Mockup 
+               <div className="relative mx-auto max-w-7xl">
+                    <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
                          <motion.div
-                              initial={{ opacity: 0, scale: 0.9 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ duration: 1 }}
-                              className="w-full lg:w-1/2 relative flex justify-center order-1 lg:order-2"
+                              initial={{ opacity: 0, y: 28 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.6 }}
+                              className="text-center lg:text-left"
                          >
-                              <div className="absolute inset-0 scale-75 bg-emerald-100/30 blur-[100px] rounded-full -z-10" />
-                              <div className="relative w-[280px] sm:w-[350px] md:w-[420px] h-[550px] sm:h-[700px] animate-float">
-                                   <Image
-                                        src={heroDetails.centerImageSrc}
-                                        fill
-                                        className="object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.12)]"
-                                        alt="App Preview"
-                                   />
+                              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#005A31]/15 bg-white/70 px-4 py-2 text-sm font-black text-[#005A31] shadow-sm backdrop-blur-md">
+                                   <Download className="h-4 w-4 text-[#F38500]" />
+                                   Download Parentfully
+                              </div>
+
+                              <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[0.98] tracking-[-0.01em] text-gray-950 text-balance sm:text-6xl md:text-7xl lg:mx-0">
+                                   Start Building Your{" "}
+                                   <span className="text-[#005A31]">Family System</span>
+                                   <span className="text-[#F38500]"> Today.</span>
+                              </h1>
+
+                              <p className="mx-auto mt-6 max-w-2xl text-lg font-semibold leading-relaxed text-gray-700 sm:text-xl lg:mx-0">
+                                   Get Parentfully on your phone and turn routines, goals, reminders, schedules, and family communication into one shared playbook.
+                              </p>
+
+                              <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:max-w-2xl">
+                                   {highlights.map((item) => (
+                                        <div
+                                             key={item.text}
+                                             className="flex items-center gap-3 rounded-2xl border border-white/70 bg-white/55 p-4 text-left shadow-sm backdrop-blur-md"
+                                        >
+                                             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#005A31]/10 text-[#005A31]">
+                                                  {item.icon}
+                                             </div>
+                                             <p className="text-sm font-black leading-snug text-gray-800">{item.text}</p>
+                                        </div>
+                                   ))}
                               </div>
                          </motion.div>
-                         */}
+
+                         <motion.div
+                              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              transition={{ duration: 0.7, delay: 0.1 }}
+                              className="relative mx-auto flex w-full max-w-lg justify-center lg:max-w-none"
+                         >
+                              <div className="absolute inset-10 rounded-full bg-[#F38500]/10 blur-[90px]" />
+                              <div className="relative grid grid-cols-2 items-end gap-4">
+                                   <div className="relative h-[420px] w-[190px] overflow-hidden rounded-[2rem] border-[8px] border-gray-950 bg-gray-950 shadow-[0_26px_70px_rgba(15,23,42,0.24)] sm:h-[520px] sm:w-[240px]">
+                                        <Image
+                                             src="/mocks/mock6.png"
+                                             alt="Parentfully goals screen"
+                                             fill
+                                             sizes="(min-width: 640px) 240px, 190px"
+                                             className="object-cover object-top"
+                                             priority
+                                        />
+                                   </div>
+                                   <div className="relative mb-10 h-[360px] w-[170px] overflow-hidden rounded-[1.8rem] border-[8px] border-gray-950 bg-gray-950 shadow-[0_22px_60px_rgba(15,23,42,0.2)] sm:h-[460px] sm:w-[215px]">
+                                        <Image
+                                             src="/mocks/mock4.png"
+                                             alt="Parentfully routines screen"
+                                             fill
+                                             sizes="(min-width: 640px) 215px, 170px"
+                                             className="object-cover object-top"
+                                        />
+                                   </div>
+                              </div>
+                         </motion.div>
                     </div>
 
-                    {/* --- Download Cards Grid: Breaking out of the columns for impact --- */}
-                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto relative z-10">
-                         {/* Apple Card */}
-                         <motion.a
-                              href={downloadLinks.apple}
-                              target="_blank"
-                              whileHover={{ y: -10 }}
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              className="group bg-white/80 backdrop-blur-xl p-8 sm:p-10 rounded-2xl border border-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] transition-all duration-500"
-                         >
-                              <div className="flex justify-between items-start mb-16">
-                                   <div className="w-20 h-20 bg-[#1A1A1A] rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                                        <Image src="/icons/apple3.png" alt="apple" width={40} height={40} className="invert" />
-                                   </div>
-                                   <div className="bg-[#E2FDF8] text-[#005A31] text-[10px] font-black uppercase tracking-[0.2em] px-5 py-2.5 rounded-full">
-                                        v2.4.0 Live
-                                   </div>
-                              </div>
-                              <h3 className="text-4xl font-black text-[#1A1A1A] mb-3">iOS App</h3>
-                              <p className="text-gray-500 mb-10 font-medium text-lg">{platformFeatures[0].requirements}</p>
-                              <div className="flex items-center gap-3 text-[#005A31] font-black text-xl group-hover:gap-5 transition-all">
-                                   Download for iPhone <ArrowRight size={24} />
-                              </div>
-                         </motion.a>
+                    <motion.div
+                         initial={{ opacity: 0, y: 22 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{ once: true }}
+                         transition={{ duration: 0.6 }}
+                         className="mt-16 grid gap-5 lg:grid-cols-2"
+                    >
+                         {platforms.map((platform) => {
+                              const dark = platform.theme === "dark";
 
-                         {/* Google Card */}
-                         <motion.a
-                              href={downloadLinks.google}
-                              target="_blank"
-                              whileHover={{ y: -10 }}
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: 0.1 }}
-                              className="group bg-[#005A31] p-8 sm:p-10 rounded-2xl shadow-[0_20px_50px_rgba(0,90,49,0.2)] hover:shadow-[0_40px_80px_rgba(0,90,49,0.3)] transition-all duration-500 text-white"
-                         >
-                              <div className="flex justify-between items-start mb-16">
-                                   <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                                        <Image src="/icons/google.png" alt="google" width={40} height={40} />
-                                   </div>
-                                   <div className="bg-white/10 text-emerald-100 text-[10px] font-black uppercase tracking-[0.2em] px-5 py-2.5 rounded-full backdrop-blur-md">
-                                        Fast Sync
-                                   </div>
+                              return (
+                                   <a
+                                        key={platform.name}
+                                        href={platform.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className={`group rounded-2xl border p-6 shadow-[0_22px_60px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_75px_rgba(15,23,42,0.12)] sm:p-8 ${dark
+                                             ? "border-[#005A31]/10 bg-[#005A31] text-white"
+                                             : "border-white/80 bg-white/80 text-gray-950 backdrop-blur-md"
+                                             }`}
+                                   >
+                                        <div className="mb-10 flex items-start justify-between gap-4">
+                                             <div className={`flex h-16 w-16 items-center justify-center rounded-2xl shadow-lg ${dark ? "bg-white" : "bg-gray-950"}`}>
+                                                  <Image
+                                                       src={platform.icon}
+                                                       alt={platform.name}
+                                                       width={34}
+                                                       height={34}
+                                                       className={platform.iconClassName}
+                                                  />
+                                             </div>
+                                             <span className={`rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.14em] ${dark ? "bg-white/10 text-orange-100" : "bg-[#E2FDF8] text-[#005A31]"}`}>
+                                                  {platform.eyebrow}
+                                             </span>
+                                        </div>
+
+                                        <h2 className="text-3xl font-black leading-tight sm:text-4xl">{platform.name}</h2>
+                                        <div className={`mt-4 space-y-2 text-sm font-bold ${dark ? "text-white/72" : "text-gray-500"}`}>
+                                             <p>{platform.feature.requirements}</p>
+                                             <p>{platform.feature.version} • {platform.feature.size}</p>
+                                        </div>
+
+                                        <div className={`mt-8 inline-flex items-center gap-3 text-lg font-black transition-all group-hover:gap-5 ${dark ? "text-white" : "text-[#005A31]"}`}>
+                                             {platform.button}
+                                             <ArrowRight className="h-5 w-5" />
+                                        </div>
+                                   </a>
+                              );
+                         })}
+                    </motion.div>
+
+                    <div className="mt-10 grid gap-3 sm:grid-cols-3">
+                         {downloadStats.map((stat) => (
+                              <div key={stat.label} className="rounded-2xl border border-white/70 bg-white/55 p-5 text-center shadow-sm backdrop-blur-md">
+                                   <p className="text-3xl font-black text-[#005A31]">{stat.value}</p>
+                                   <p className="mt-1 text-sm font-bold text-gray-600">{stat.label}</p>
                               </div>
-                              <h3 className="text-4xl font-black mb-3">Android App</h3>
-                              <p className="text-emerald-100/70 mb-10 font-medium text-lg">{platformFeatures[1].requirements}</p>
-                              <div className="flex items-center gap-3 text-white font-black text-xl group-hover:gap-5 transition-all">
-                                   Get it on Play Store <PlayCircle size={24} />
-                              </div>
-                         </motion.a>
+                         ))}
+                    </div>
+
+                    <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-2 text-center text-sm font-semibold text-gray-600">
+                         <CheckCircle2 className="h-4 w-4 shrink-0 text-[#F38500]" />
+                         <span>Choose your platform, install the app, and start with one child profile.</span>
                     </div>
                </div>
-
-               <style jsx global>{`
-                @keyframes float-large {
-                    0%, 100% { transform: translateY(0) rotate(0deg); }
-                    50% { transform: translateY(-30px) rotate(1.5deg); }
-                }
-                .animate-float {
-                    animation: float-large 10s ease-in-out infinite;
-                }
-            `}</style>
           </section>
      );
-};
-
-export default DownloadPage;
+}

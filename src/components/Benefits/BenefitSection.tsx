@@ -36,7 +36,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
     const { title, description, imageSrc, bullets } = benefit;
 
     return (
-        <section className="relative overflow-hidden py-10 lg:py-12">
+        <section className="relative overflow-hidden py-1 lg:py-1">
             <motion.div
                 className={clsx(
                     "max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-10 lg:flex-row lg:gap-20",
@@ -60,7 +60,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
                         </p>
                     </motion.div>
 
-                    <div className="mt-8 space-y-3">
+                    <div className="mt-6 space-y-1.5">
                         {bullets.map((item, index) => (
                             <BenefitBullet
                                 key={index}

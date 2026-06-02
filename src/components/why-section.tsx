@@ -4,22 +4,22 @@ import { Calendar, CheckSquare, MessageSquare, Target, Zap, Link as LinkIcon } f
 
 const tools = [
      {
-          icon: <Calendar className="w-5 h-5 text-orange-400" />,
+          icon: <Calendar className="h-6 w-6 text-[#F38500]" />,
           tool: "A calendar",
           problem: "helps you remember dates"
      },
      {
-          icon: <CheckSquare className="w-5 h-5 text-orange-400" />,
+          icon: <CheckSquare className="h-6 w-6 text-[#F38500]" />,
           tool: "A chore chart",
           problem: "helps you assign tasks"
      },
      {
-          icon: <MessageSquare className="w-5 h-5 text-orange-400" />,
+          icon: <MessageSquare className="h-6 w-6 text-[#F38500]" />,
           tool: "A co-parenting app",
           problem: "helps you send messages"
      },
      {
-          icon: <Target className="w-5 h-5 text-orange-400" />,
+          icon: <Target className="h-6 w-6 text-[#F38500]" />,
           tool: "A habit tracker",
           problem: "helps you monitor progress"
      }
@@ -37,31 +37,31 @@ const connections = [
 
 export default function WhyDifferent() {
      return (
-          <section className="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
-               <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div className="max-w-5xl mx-auto">
+          <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-white py-20 lg:py-28">
+               <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                    <div className="mx-auto max-w-6xl">
                          <motion.div
                               initial={{ opacity: 0, y: 30 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6 }}
-                              className="text-center mb-12"
+                              className="mb-12 text-center"
                          >
                               <motion.div
                                    initial={{ opacity: 0, scale: 0.9 }}
                                    whileInView={{ opacity: 1, scale: 1 }}
                                    transition={{ delay: 0.2 }}
-                                   className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full border border-orange-200 mb-6"
+                                   className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#F38500]/20 bg-[#F38500]/10 px-4 py-2"
                               >
-                                   <Zap className="w-4 h-4 text-orange-500" />
-                                   <span className="text-sm text-orange-600 font-medium">The difference</span>
+                                   <Zap className="h-4 w-4 text-[#F38500]" />
+                                   <span className="text-sm font-black text-[#F38500]">The difference</span>
                               </motion.div>
 
-                              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight text-gray-900 text-balance">
+                              <h2 className="text-4xl font-black leading-[1.05] text-gray-950 text-balance sm:text-5xl md:text-6xl">
                                    Why It&apos;s{" "}
                                    <span className="text-[#F38500]">Different</span>
                               </h2>
-                              <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
                                    Most parenting tools solve one small problem.
                               </p>
                          </motion.div>
@@ -72,7 +72,7 @@ export default function WhyDifferent() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6, delay: 0.2 }}
-                              className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+                              className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
                          >
                               {tools.map((item, idx) => (
                                    <motion.div
@@ -81,13 +81,13 @@ export default function WhyDifferent() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: idx * 0.1 }}
-                                        className="bg-white rounded-xl p-4 text-center border border-gray-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all"
+                                        className="rounded-2xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md sm:p-6"
                                    >
-                                        <div className="w-10 h-10 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#F38500]/10">
                                              {item.icon}
                                         </div>
-                                        <p className="font-semibold text-gray-800 text-sm">{item.tool}</p>
-                                        <p className="text-gray-500 text-xs">{item.problem}</p>
+                                        <p className="text-lg font-black leading-tight text-gray-900">{item.tool}</p>
+                                        <p className="mt-2 text-base font-semibold leading-relaxed text-gray-500">{item.problem}</p>
                                    </motion.div>
                               ))}
                          </motion.div>
@@ -98,9 +98,9 @@ export default function WhyDifferent() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6, delay: 0.3 }}
-                              className="text-center mb-8"
+                              className="mb-8 text-center"
                          >
-                              <p className="text-2xl font-bold text-gray-800 mb-4">
+                              <p className="mb-4 text-2xl font-black leading-tight text-gray-900 sm:text-3xl">
                                    But parenting is <span className="text-[#F38500]">not one small problem</span>
                               </p>
                          </motion.div>
@@ -111,7 +111,7 @@ export default function WhyDifferent() {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6, delay: 0.4 }}
-                              className="bg-gradient-to-r from-[#005A31]/5 to-[#F38500]/5 rounded-2xl border border-[#005A31]/10 p-6 md:p-8 mb-8"
+                              className="mb-8 rounded-2xl border border-[#005A31]/10 bg-gradient-to-r from-[#005A31]/5 to-[#F38500]/5 p-5 sm:p-6 md:p-8"
                          >
                               {connections.map((connection, idx) => (
                                    <div key={idx}>
@@ -120,14 +120,16 @@ export default function WhyDifferent() {
                                              whileInView={{ opacity: 1, x: 0 }}
                                              viewport={{ once: true }}
                                              transition={{ delay: idx * 0.05 }}
-                                             className="flex items-start justify-center gap-3 py-2 text-center sm:text-left"
+                                             className="flex items-start gap-3 rounded-xl bg-white/60 px-4 py-3 shadow-sm sm:px-5"
                                         >
-                                             <LinkIcon className="w-4 h-4 text-[#F38500]" />
-                                             <span className="text-gray-700 text-sm md:text-base">{connection}</span>
+                                             <LinkIcon className="mt-1 h-5 w-5 shrink-0 text-[#F38500]" />
+                                             <span className="text-left text-base font-bold leading-relaxed text-gray-700 sm:text-lg">
+                                                  {connection}
+                                             </span>
                                         </motion.div>
                                         {idx < connections.length - 1 && (
-                                             <div className="flex justify-center py-1">
-                                                  <div className="w-px h-4 bg-gray-300" />
+                                             <div className="flex py-1 pl-7 sm:pl-8">
+                                                  <div className="h-4 w-px bg-[#005A31]/20" />
                                              </div>
                                         )}
                                    </div>
@@ -142,11 +144,11 @@ export default function WhyDifferent() {
                               transition={{ duration: 0.6, delay: 0.5 }}
                               className="text-center"
                          >
-                              <div className="bg-[#005A31] rounded-2xl p-8 text-white shadow-[0_18px_45px_rgba(0,90,49,0.22)]">
-                                   <p className="text-xl font-bold mb-3">
+                              <div className="rounded-2xl bg-[#005A31] p-6 text-white shadow-[0_18px_45px_rgba(0,90,49,0.22)] sm:p-8">
+                                   <p className="mb-3 text-2xl font-black leading-tight sm:text-3xl">
                                         Parentfully connects the real parts of parenting into one family operating system.
                                    </p>
-                                   <p className="text-white/80">
+                                   <p className="mx-auto max-w-3xl text-lg font-semibold leading-relaxed text-white/85">
                                         So you are not just managing tasks. You are building a more intentional family life.
                                    </p>
                               </div>

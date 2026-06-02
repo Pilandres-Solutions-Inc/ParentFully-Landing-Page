@@ -140,7 +140,7 @@ const PrivacyPolicy = () => {
                                    <h3 className="text-xl font-bold text-[#005A31] mb-2">9. Contact Us</h3>
                                    <p className="text-gray-500 mb-6">Questions about this policy? Reach out anytime.</p>
                                    <a
-                                        href="mailto:contact@parentfullyapp.com"
+                                        href="mailto:admin@parentfullyapp.com"
                                         className="inline-flex items-center gap-2 bg-[#F38500] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-orange-200 transition-all active:scale-95"
                                    >
                                         <FileText size={18} /> Email Support

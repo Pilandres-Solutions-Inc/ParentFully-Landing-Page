@@ -118,7 +118,7 @@ export default function TransformationSection() {
                                         className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all"
                                    >
                                         <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-                                             <span className="text-white/70 text-sm sm:text-base font-medium text-left">
+                                             <span className="text-white/80 text-sm sm:text-base font-medium text-left">
                                                   {item.before}
                                              </span>
                                              <div className="flex-shrink-0">
@@ -131,6 +131,8 @@ export default function TransformationSection() {
                                    </motion.div>
                               ))}
                          </motion.div>
+
+                         {/** 
                          <motion.div
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
@@ -159,6 +161,7 @@ export default function TransformationSection() {
                                    ))}
                               </div>
                          </motion.div>
+                         */}
 
                          <motion.div
                               initial={{ opacity: 0, y: 20 }}
@@ -182,6 +185,7 @@ export default function TransformationSection() {
                                    ))}
                               </div>
                          </motion.div>
+                         
                          <motion.div
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}

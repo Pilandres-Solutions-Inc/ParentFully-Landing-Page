@@ -13,10 +13,10 @@ const steps = [
      },
      {
           step: "02",
-          icon: <Users className="w-8 h-8" />,
-          title: "Set Your Family Structure",
-          description: "Add the people involved in your child's care.",
-          extra: "This can include a parent, partner, co-parent, nanny, caregiver, or trusted adult. Everyone can stay aligned based on their role."
+          icon: <TargetIcon className="w-8 h-8" />,
+          title: "Add Goals and Discipline Plans",
+          description: "Set the skills, habits, values, and behaviors you want to build in your child.",
+          extra: "Then create simple guidance plans to support those goals."
      },
      {
           step: "03",
@@ -27,10 +27,10 @@ const steps = [
      },
      {
           step: "04",
-          icon: <TargetIcon className="w-8 h-8" />,
-          title: "Add Goals and Discipline Plans",
-          description: "Set the skills, habits, values, and behaviors you want to build in your child.",
-          extra: "Then create simple guidance plans to support those goals."
+          icon: <Users className="w-8 h-8" />,
+          title: "Set Your Family Structure",
+          description: "Add the people involved in your child's care.",
+          extra: "This can include a parent, partner, co-parent, nanny, caregiver, or trusted adult. Everyone can stay aligned based on their role."
      },
      {
           step: "05",
