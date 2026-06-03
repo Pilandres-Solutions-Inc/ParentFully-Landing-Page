@@ -1,18 +1,44 @@
 "use client";
 import { motion } from "framer-motion";
-import { AlertCircle, ArrowRight, Brain } from "lucide-react";
+import {
+     ArrowRight,
+     Brain,
+     CalendarDays,
+     HeartHandshake,
+     MessageCircle,
+     ShieldAlert,
+     Users
+} from "lucide-react";
 import Link from "next/link";
 
-const struggles = [
-     "Different rules every day",
-     "Different routines from every adult",
-     "More meltdowns",
-     "More \"but Dad said...\" moments",
-     "More mental load for you",
-     "Kindness and resilience getting lost",
-     "Real-world skills pushed aside",
-     "Too many texts about handoffs",
-     "No shared place for the big decisions"
+const struggleGroups = [
+     {
+          icon: <ShieldAlert className="h-5 w-5" />,
+          title: "Mixed expectations",
+          points: [
+               "Different rules every day",
+               "Different routines from every adult",
+               "More \"but Dad said...\" moments"
+          ]
+     },
+     {
+          icon: <MessageCircle className="h-5 w-5" />,
+          title: "Scattered coordination",
+          points: [
+               "Too many texts about handoffs",
+               "No shared place for the big decisions",
+               "More mental load for you"
+          ]
+     },
+     {
+          icon: <HeartHandshake className="h-5 w-5" />,
+          title: "Lost development",
+          points: [
+               "More meltdowns",
+               "Kindness and resilience getting lost",
+               "Real-world skills pushed aside"
+          ]
+     }
 ];
 
 export default function ProblemSection() {
@@ -57,33 +83,76 @@ export default function ProblemSection() {
                              
                          </motion.div>
 
-                         {/* Struggle List */}
+                         {/* Struggle Impact */}
                          <motion.div
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.6, delay: 0.2 }}
-                              className="mb-8 rounded-2xl border border-red-200 bg-gradient-to-br from-red-50 via-white to-orange-50 p-6 shadow-[0_18px_45px_rgba(248,113,113,0.12)] md:p-8"
+                              className="mb-8 overflow-hidden rounded-2xl border border-red-100 bg-[#FFF7F2] shadow-[0_24px_70px_rgba(248,113,113,0.14)]"
                          >
-                              <p className="mb-6 text-center text-xl font-black leading-tight text-red-700">
-                                   The Result?
-                              </p>
-                              <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-                                   {struggles.map((struggle, idx) => (
-                                        <motion.div
-                                             key={idx}
-                                             initial={{ opacity: 0, x: -20 }}
-                                             whileInView={{ opacity: 1, x: 0 }}
-                                             viewport={{ once: true }}
-                                             transition={{ delay: idx * 0.05 }}
-                                             className="group flex items-center gap-4 rounded-xl border border-red-100 bg-white p-4 shadow-sm ring-1 ring-red-100/70 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-200 hover:shadow-md"
-                                        >
-                                             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 text-sm font-black text-red-600 group-hover:bg-red-500 group-hover:text-white">
-                                                  {idx + 1}
+                              <div className="grid gap-0 lg:grid-cols-[0.82fr_1.18fr]">
+                                   <div className="flex flex-col justify-between bg-red-600 p-6 text-white sm:p-8">
+                                        <div>
+                                             <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/15">
+                                                  <Users className="h-6 w-6" />
                                              </div>
-                                             <span className="text-base font-bold leading-snug text-gray-800">{struggle}</span>
-                                        </motion.div>
-                                   ))}
+                                             <p className="text-sm font-black uppercase tracking-[0.16em] text-red-100">
+                                                  The result
+                                             </p>
+                                             <p className="mt-3 text-3xl font-black leading-tight text-balance sm:text-4xl">
+                                                  One child. Too many playbooks.
+                                             </p>
+                                             <p className="mt-4 text-base font-semibold leading-relaxed text-red-50">
+                                                  When every caregiver works from a different page, the day stops feeling predictable for your child and heavier for you.
+                                             </p>
+                                        </div>
+
+                                        <div className="mt-8 rounded-2xl border border-white/15 bg-white/10 p-4">
+                                             <div className="mb-3 flex items-center gap-3">
+                                                  <CalendarDays className="h-5 w-5 text-orange-100" />
+                                                  <span className="text-sm font-black uppercase tracking-[0.12em] text-red-100">
+                                                       Daily fallout
+                                                  </span>
+                                             </div>
+                                             <div className="h-2 overflow-hidden rounded-full bg-white/20">
+                                                  <div className="h-full w-4/5 rounded-full bg-orange-200" />
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <div className="grid gap-4 p-5 sm:p-6 md:p-8">
+                                        {struggleGroups.map((group, idx) => (
+                                             <motion.div
+                                                  key={group.title}
+                                                  initial={{ opacity: 0, y: 16 }}
+                                                  whileInView={{ opacity: 1, y: 0 }}
+                                                  viewport={{ once: true }}
+                                                  transition={{ delay: idx * 0.08 }}
+                                                  className="rounded-2xl border border-red-100 bg-white p-4 shadow-sm sm:p-5"
+                                             >
+                                                  <div className="mb-4 flex items-center gap-3">
+                                                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-50 text-red-600">
+                                                            {group.icon}
+                                                       </div>
+                                                       <p className="text-lg font-black leading-tight text-gray-900">
+                                                            {group.title}
+                                                       </p>
+                                                  </div>
+
+                                                  <div className="grid gap-2 sm:grid-cols-3">
+                                                       {group.points.map((point) => (
+                                                            <div
+                                                                 key={point}
+                                                                 className="flex min-h-20 items-center rounded-xl bg-[#FFF7F2] px-3 py-3 text-sm font-bold leading-snug text-gray-700 ring-1 ring-red-100"
+                                                            >
+                                                                 {point}
+                                                            </div>
+                                                       ))}
+                                                  </div>
+                                             </motion.div>
+                                        ))}
+                                   </div>
                               </div>
                          </motion.div>
 
@@ -98,7 +167,8 @@ export default function ProblemSection() {
                               <div className="inline-flex items-center justify-center w-16 h-16 bg-[#005A31]/10 rounded-full mb-4">
                                    <Brain className="w-8 h-8 text-[#005A31]" />
                               </div>
-                              <p className="text-xl text-gray-800 font-semibold mb-4">
+                              <p className="text-5xl md:text-2xl 
+                              text-[#005A31] font-semibold mb-4">
                                    Parentfully changes that.
                               </p>
                               <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">

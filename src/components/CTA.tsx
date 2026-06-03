@@ -36,7 +36,6 @@ const ContactCTA: React.FC = () => {
         if (!validate()) return;
 
         setLoading(true);
-        // Simulate API call
         setTimeout(() => {
             setLoading(false);
             setSubmitted(true);

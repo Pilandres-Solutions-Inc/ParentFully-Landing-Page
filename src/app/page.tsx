@@ -12,6 +12,7 @@ import EverydayActionSection from "@/components/Important";
 import WhoItsFor from "@/components/Choose";
 import Testimonials from "@/components/Testimonials";
 import Struggling from "@/components/Struggling";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const HomePage: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const HomePage: React.FC = () => {
         <FAQ />
         <CTA />
       </Container>
+      <ScrollToTop />
     </>
   );
 };

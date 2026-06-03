@@ -1,13 +1,10 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnexi-launch%2Ffinwise-landing-page)
-
 # ParentFully - Landing Page
-
-Please check out the documentation below to get started.
-
+ParentFully is a dedicated co-parenting and family management mobile application designed to help caregivers simplify routines, coordinate schedules, and track child-specific development in one centralized hub.Whether you are navigating shared custody or simply managing a busy household, the platform offers a few core features to make family life easier:Centralized Coordination: Manage schedules, appointments, and daily routines seamlessly so all caregivers are on the same page.Family Communication Hub: Use a secure, private messaging space to share updates, reminders, and notes, minimizing misunderstandings.Milestone & Goal Tracking: Monitor and celebrate individual growth, milestones, and shared tasks for each of your children.Expense & Task Management: Keep track of family expenses and shared responsibilities without the confusion.
 ---
 
-## Features
+To download the platform or learn more about how it can support your family, check out the ParentFully on Google Play Store **(https://www.google.com/url?sa=i&source=web&rct=j&url=https://play.google.com/store/apps/details?id%3Dcom.fushrifle.ParentFully&ved=2ahUKEwilzaOQvemUAxUJUUEAHeCgDH0Qy_kOegoIAggACAAIDBAC&opi=89978449&cd&psig=AOvVaw2dBvHNvacQTjAwz1Rh12p7&ust=1780521371715000)** Listing or explore their updates on the ParentFully Facebook Page **(https://www.google.com/url?sa=i&source=web&rct=j&url=https://www.facebook.com/parentfully/?locale%3Dzh_TW&ved=2ahUKEwilzaOQvemUAxUJUUEAHeCgDH0Qy_kOegoIAggACAAIDBAD&opi=89978449&cd&psig=AOvVaw2dBvHNvacQTjAwz1Rh12p7&ust=1780521371715000)**
 
+## Features
 - **Next.js** app router with **TypeScript**
 - **Tailwind CSS** v3 for flexible styling customization
 - Smooth transitions powered by **Framer Motion**
@@ -21,7 +18,6 @@ Please check out the documentation below to get started.
 ---
 
 ## Sections
-
 - Hero
 - Partners or Clients Logos
 - Features

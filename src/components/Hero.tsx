@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
                         thrive.
                     </p>
 
-                    <p className="mt-3 max-w-3xl text-base font-black leading-relaxed text-[#005A31] md:text-lg">
+                    <p className="mt-3 max-w-3xl text-base font-black leading-relaxed text-[#005A31] md:text-lg text-xl">
                         Whether you&apos;re parenting solo, with a partner, or alongside caregivers.
                     </p>
                 </header>

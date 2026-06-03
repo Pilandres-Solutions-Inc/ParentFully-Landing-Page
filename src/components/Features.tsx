@@ -28,8 +28,8 @@ const dailyTools = [
      },
      {
           icon: <FileText className="w-6 h-6" />,
-          title: "Family Agreements",
-          description: "Log decisions on screen time, discipline, and curfews. End the debates."
+          title: "Discipline Plan",
+          description: "Document screen time limits, curfews, and disciplinary actions. Replace power struggles with a consistent plan."
      }
 ];
 

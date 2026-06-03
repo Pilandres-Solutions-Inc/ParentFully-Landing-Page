@@ -9,16 +9,38 @@ import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 import Container from './Container';
 import { siteDetails } from '@/data/siteDetails';
 import { menuItems } from '@/data/menuItems';
+import { getSurfaceLuminanceAt } from '@/utils/surfaceTone';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [isDarkSurface, setIsDarkSurface] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
+        const handleScroll = () => {
+            const nextScrolled = window.scrollY > 20;
+
+            setScrolled(nextScrolled);
+            setIsDarkSurface(getSurfaceLuminanceAt(window.innerWidth / 2, nextScrolled ? 56 : 32) < 120);
+        };
+
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+        };
     }, []);
+
+    const navSurfaceClass = isDarkSurface
+        ? 'bg-white/10 border-white/20 shadow-[0_18px_50px_rgba(0,0,0,0.18)]'
+        : 'bg-white/60 border-white/55 shadow-[0_18px_50px_rgba(15,23,42,0.08)]';
+
+    const linkClass = isDarkSurface
+        ? 'text-white/90 hover:text-[#F38500]'
+        : 'text-slate-700 hover:text-[#F38500]';
 
     return (
         <header
@@ -29,13 +51,13 @@ const Header: React.FC = () => {
         >
             <Container>
                 <nav
-                    className={`mx-auto transition-all duration-500 ease-in-out px-6 md:px-10 py-4 flex items-center justify-between ${scrolled
-                        ? 'bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/20 rounded-[2rem]'
-                        : 'bg-transparent rounded-none'
+                    className={`mx-auto flex items-center justify-between border px-6 py-4 backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500 ease-in-out md:px-10 ${scrolled
+                        ? `${navSurfaceClass} rounded-[2rem]`
+                        : `${isDarkSurface ? 'bg-white/10 border-white/10' : 'bg-white/20 border-white/20'} rounded-none shadow-none`
                         }`}
                 >
                     {/* Enhanced Logo */}
-                    <Link href="/" className="relative z-10 flex-shrink-0 transition-transform active:scale-95">
+                    <Link href="/" className="relative z-10 flex-shrink-0 rounded-2xl bg-white/85 px-2 py-1 shadow-sm transition-transform active:scale-95">
                         <Image
                             src="/icons/ParentFully.png"
                             alt={siteDetails.siteName}
@@ -53,7 +75,7 @@ const Header: React.FC = () => {
                                 <li key={item.text}>
                                     <Link
                                         href={item.url}
-                                        className="text-[17px] font-semibold text-slate-700 hover:text-orange-500 transition-colors tracking-tight"
+                                        className={`text-[17px] font-semibold tracking-tight transition-colors ${linkClass}`}
                                     >
                                         {item.text}
                                     </Link>
@@ -63,7 +85,7 @@ const Header: React.FC = () => {
 
                         <Link
                             href="/download"
-                            className="bg-[#005A31] hover:bg-[#005A31]/90 text-white px-7 py-3 rounded-xl text-[15px] font-bold shadow-[0_10px_20px_-10px_rgba(0,90,49,0.5)] transition-all hover:-translate-y-0.5 active:translate-y-0"
+                            className={`${isDarkSurface ? 'bg-[#F38500] hover:bg-[#F38500]/90 shadow-[0_10px_24px_-10px_rgba(243,133,0,0.7)]' : 'bg-[#005A31] hover:bg-[#005A31]/90 shadow-[0_10px_20px_-10px_rgba(0,90,49,0.5)]'} rounded-xl px-7 py-3 text-[15px] font-bold text-white transition-all hover:-translate-y-0.5 active:translate-y-0`}
                         >
                             Download Now
                         </Link>

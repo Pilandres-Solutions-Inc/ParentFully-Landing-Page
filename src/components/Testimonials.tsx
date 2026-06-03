@@ -1,77 +1,119 @@
+"use client";
+
 import React from 'react';
-import Image from 'next/image';
-import { Quote, Star } from 'lucide-react';
-import { testimonials } from '@/data/testimonials';
+import Script from 'next/script';
+import { MessageCircleHeart, Quote, Sparkles } from 'lucide-react';
+import { BsSend } from 'react-icons/bs';
+
+declare global {
+    interface Window {
+        SenjaCollector?: {
+            open: () => void;
+        };
+        SenjaCollectorConfig?: {
+            url: string;
+            trigger: {
+                type: string;
+            };
+        };
+    }
+}
+
+const senjaCollectorUrl = 'https://senja.io/p/parentfullyapp/r/R3Qc5w';
 
 const Testimonials: React.FC = () => {
+    const openSenjaCollector = () => {
+        window.SenjaCollector?.open();
+    };
+
     return (
-        <section className="relative overflow-hidden bg-[#E2FDF8] px-4 py-20 sm:px-6 lg:py-28">
+        <section className="relative mx-auto overflow-hidden bg-[#E2FDF8] px-4 py-20 sm:px-6 lg:py-28">
+            <Script id="senja-collector-config" strategy="afterInteractive">
+                {`
+                    window.SenjaCollectorConfig = {
+                        url: "${senjaCollectorUrl}",
+                        trigger: {"type":"none"}
+                    }
+                `}
+            </Script>
+            <Script
+                id="senja-collector"
+                type="text/javascript"
+                async
+                src="https://widget.senja.io/js/collector.js"
+                strategy="afterInteractive"
+            />
+
             <div
                 className="absolute inset-0 bg-cover bg-center opacity-[0.04]"
                 style={{ backgroundImage: "url('/images/HeroBG.png')" }}
             />
+            <div className="absolute left-0 top-0 h-24 w-full bg-gradient-to-b from-white/70 to-transparent" />
+            <div className="absolute bottom-0 left-0 h-28 w-full bg-gradient-to-t from-white/45 to-transparent" />
             <div className="absolute -left-24 top-20 h-80 w-80 rounded-full bg-[#005A31]/10 blur-[120px]" />
             <div className="absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-[#F38500]/15 blur-[120px]" />
 
-            <div className="relative mx-auto max-w-7xl">
-                <div className="mx-auto mb-12 max-w-4xl text-center lg:mb-16">
-                    <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#005A31]/10 bg-white/70 px-4 py-2 shadow-sm backdrop-blur-md">
-                        <Quote className="h-4 w-4 text-[#F38500]" />
-                        <span className="text-sm font-black text-[#005A31]">Trusted by growing families</span>
-                    </div>
-
-                    <h2 className="text-4xl font-black leading-[1.05] text-gray-950 text-balance sm:text-5xl md:text-6xl">
-                        Parents Are Building Calmer,
-                        <span className="text-[#F38500]"> More Consistent Homes.</span>
-                    </h2>
-
-                    <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
-                        Real stories from families using Parentfully to stay aligned, share routines, and support
-                        their children with more clarity.
-                    </p>
-                </div>
-
-                <div className="grid gap-5 lg:grid-cols-3">
-                    {testimonials.map((testimonial, index) => (
-                        <article
-                            key={testimonial.name}
-                            className="flex h-full flex-col rounded-2xl border border-white/75 bg-white/80 p-6 shadow-[0_18px_45px_rgba(15,23,42,0.06)] backdrop-blur-md transition hover:-translate-y-1 hover:bg-white hover:shadow-[0_22px_55px_rgba(15,23,42,0.10)] sm:p-7"
-                        >
-                            <div className="mb-6 flex items-center justify-between gap-4">
-                                <div className="flex items-center gap-1 text-[#F38500]" aria-label="5 star rating">
-                                    {Array.from({ length: 5 }).map((_, starIndex) => (
-                                        <Star key={starIndex} className="h-4 w-4 fill-current" />
-                                    ))}
-                                </div>
-
-                                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#005A31]/10 text-[#005A31]">
-                                    <Quote className="h-5 w-5" />
-                                </div>
+            <div className="relative mx-auto max-w-8xl">
+                <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/80 bg-white/70 p-6 shadow-[0_30px_90px_rgba(15,23,42,0.10)] backdrop-blur-xl sm:p-8 lg:p-10">
+                    <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+                        <div>
+                            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#005A31]/10 bg-[#E2FDF8]/80 px-4 py-2 shadow-sm">
+                                <Quote className="h-4 w-4 text-[#F38500]" />
+                                <span className="text-sm font-black text-[#005A31]">Real parent stories</span>
                             </div>
 
-                            <p className="flex-1 text-lg font-semibold leading-relaxed text-gray-700">
-                                &quot;{testimonial.message}&quot;
+                            <h2 className="text-4xl font-black leading-[1.05] text-gray-950 text-balance sm:text-5xl md:text-6xl">
+                                Tell Us What Parentfully
+                                <span className="text-[#F38500]"> Changed For You.</span>
+                            </h2>
+
+                            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+                                Share your experience so other families can hear what changed at home,
+                                in routines, and across the parenting team.
                             </p>
+                        </div>
 
-                            <div className="mt-8 flex items-center gap-4 border-t border-gray-100 pt-5">
-                                <div className="relative h-14 w-14 overflow-hidden rounded-full ring-4 ring-[#E2FDF8]">
-                                    <Image
-                                        src={testimonial.avatar}
-                                        alt={`${testimonial.name} avatar`}
-                                        fill
-                                        sizes="56px"
-                                        className="object-cover"
-                                        priority={index === 0}
-                                    />
+                        <div className="relative">
+                            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#F38500]/18 via-white/40 to-[#005A31]/18 blur-2xl" />
+                            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/90 bg-[#005A31] p-6 text-white shadow-[0_24px_70px_rgba(0,90,49,0.24)] sm:p-8">
+                                <div className="absolute right-5 top-5 text-white/10">
+                                    <Quote className="h-24 w-24 fill-current" />
                                 </div>
 
-                                <div>
-                                    <h3 className="text-base font-black text-gray-950">{testimonial.name}</h3>
-                                    <p className="mt-1 text-sm font-semibold text-gray-500">{testimonial.role}</p>
+                                <div className="relative">
+                                    <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/14 ring-1 ring-white/20">
+                                        <MessageCircleHeart className="h-7 w-7 text-[#F38500]" />
+                                    </div>
+
+                                    <p className="max-w-sm text-2xl font-black leading-tight text-balance sm:text-3xl">
+                                        Your story could help another parent start with confidence.
+                                    </p>
+
+                                    <div className="mt-8 flex flex-wrap gap-2">
+                                        {['Quick', 'Personal', 'Direct'].map((item) => (
+                                            <span
+                                                key={item}
+                                                className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-sm font-bold text-white/85"
+                                            >
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        data-senja-collector-open="parentfullyapp"
+                                        data-url={senjaCollectorUrl}
+                                        onClick={openSenjaCollector}
+                                        className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-[#F38500] px-6 py-4 text-base font-black text-white shadow-[0_18px_45px_rgba(243,133,0,0.34)] transition hover:-translate-y-0.5 hover:bg-[#DD7900] focus:outline-none focus:ring-4 focus:ring-white/25 sm:w-auto"
+                                    >
+                                        <BsSend className="h-5 w-5" />
+                                        Share your story
+                                    </button>
                                 </div>
                             </div>
-                        </article>
-                    ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
