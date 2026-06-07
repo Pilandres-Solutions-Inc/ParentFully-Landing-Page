@@ -1,8 +1,7 @@
 
 export const downloadLinks = {
      apple: "https://testflight.apple.com/join/PvwGNxJE",
-
-     google: "https://play.google.com/apps/internaltest/4701138155521080945",
+     google: "https://play.google.com/store/apps/details?id=com.axetechinnovations.parentfully",
 };
 
 export const downloadStats = [
