@@ -23,12 +23,12 @@ export const footerDetails: {
         },
 
     ],
-    email: 'support@parentfullyapp.com',
-    telephone: '+1 514 249 7924',
+    email: 'admin@parentfullyapp.com',
+    telephone: '+15142497924',
     socials: {
         youtube: 'https://youtube.com',
-        instagram: 'https://www.instagram.com',
-        whatsapp: 'https://chat.whatsapp.com/EhY7ONsphWX1NmBmhGTHUS?mode=ems_copy_chat_link',
-        telegram: 'https://t.me/+NJfluxRPQsBlZGI5',
+        instagram: 'https://www.instagram.com/parentfully?igsh=MTMwMzBsbWRwZjk1NA==',
+        whatsapp: 'https://wa.me/15142497924',
+        facebook: 'https://www.facebook.com/share/1CssLYZ5hR/',
     }
 }
