@@ -5,11 +5,13 @@ import { motion, Variants } from "framer-motion";
 import BenefitBullet from "./BenefitBullet";
 import SectionTitle from "../SectionTitle";
 import { IBenefit } from "@/types";
+import PhoneFrame from "../PhoneFrame";
 
 
 interface Props {
     benefit: IBenefit;
     imageAtRight?: boolean;
+    reduceMotion?: boolean;
 }
 
 const containerVariants: Variants = {
@@ -32,8 +34,9 @@ export const childVariants: Variants = {
     },
 };
 
-const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
+const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, reduceMotion }: Props) => {
     const { title, description, imageSrc, bullets } = benefit;
+    const isPhoneScreenshot = imageSrc.endsWith(".webp");
 
     return (
         <section className="relative overflow-hidden py-1 lg:py-1">
@@ -43,9 +46,10 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
                     !imageAtRight && "lg:flex-row-reverse"
                 )}
                 variants={containerVariants}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, margin: "-100px" }}
+                initial={reduceMotion ? "onscreen" : "offscreen"}
+                animate={reduceMotion ? "onscreen" : undefined}
+                whileInView={reduceMotion ? undefined : "onscreen"}
+                viewport={reduceMotion ? undefined : { once: true, margin: "-100px" }}
             >
                 {/* --- Text Content --- */}
                 <div className="w-full lg:w-1/2 text-center lg:text-left">
@@ -83,16 +87,25 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
 
                     {/* Option 1: With float animation on wrapper */}
                     <div className="animate-float">
-                        <div className="relative w-[280px] sm:w-[320px] md:w-[380px] h-[560px] sm:h-[640px] md:h-[760px] transition-transform hover:scale-[1.02] duration-700">
-                            <Image
+                        {isPhoneScreenshot ? (
+                            <PhoneFrame
                                 src={imageSrc}
                                 alt={title}
-                                fill
-                                quality={100}
-                                sizes="(min-width: 1024px) 380px, (min-width: 640px) 320px, 280px"
-                                className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+                                sizes="(min-width: 1024px) 340px, (min-width: 640px) 290px, 250px"
+                                className="w-[250px] transition-transform duration-700 hover:scale-[1.02] sm:w-[290px] md:w-[340px]"
                             />
-                        </div>
+                        ) : (
+                            <div className="relative w-[280px] sm:w-[320px] md:w-[380px] h-[560px] sm:h-[640px] md:h-[760px] transition-transform hover:scale-[1.02] duration-700">
+                                <Image
+                                    src={imageSrc}
+                                    alt={title}
+                                    fill
+                                    quality={100}
+                                    sizes="(min-width: 1024px) 380px, (min-width: 640px) 320px, 280px"
+                                    className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+                                />
+                            </div>
+                        )}
                     </div>
                 </motion.div>
             </motion.div>

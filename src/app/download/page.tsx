@@ -10,7 +10,8 @@ import {
      ShieldCheck,
      Users
 } from "lucide-react";
-import { downloadLinks, downloadStats, platformFeatures } from "@/data/download";
+import { downloadLinks, platformFeatures } from "@/data/download";
+import PhoneFrame from "@/components/PhoneFrame";
 
 const highlights = [
      { icon: <Users className="h-5 w-5" />, text: "Invite your parenting team" },
@@ -21,7 +22,7 @@ const highlights = [
 const platforms = [
      {
           name: "iOS App",
-          eyebrow: "TestFlight",
+          eyebrow: "App Store",
           href: downloadLinks.apple,
           icon: "/icons/apple5.png",
           iconClassName: "invert",
@@ -31,7 +32,7 @@ const platforms = [
      },
      {
           name: "Android App",
-          eyebrow: "Internal Test",
+          eyebrow: "Google Play",
           href: downloadLinks.google,
           icon: "/icons/google.png",
           iconClassName: "",
@@ -94,26 +95,21 @@ export default function DownloadPage() {
                               className="relative mx-auto flex w-full max-w-lg justify-center lg:max-w-none"
                          >
                               <div className="absolute inset-10 rounded-full bg-[#F38500]/10 blur-[90px]" />
+
                               <div className="relative grid grid-cols-2 items-end gap-4">
-                                   <div className="relative h-[420px] w-[190px] overflow-hidden rounded-[2rem] border-[8px] border-gray-950 bg-gray-950 shadow-[0_26px_70px_rgba(15,23,42,0.24)] sm:h-[520px] sm:w-[240px]">
-                                        <Image
-                                             src="/mocks/mock6.png"
-                                             alt="Parentfully goals screen"
-                                             fill
-                                             sizes="(min-width: 640px) 240px, 190px"
-                                             className="object-cover object-top"
-                                             priority
-                                        />
-                                   </div>
-                                   <div className="relative mb-10 h-[360px] w-[170px] overflow-hidden rounded-[1.8rem] border-[8px] border-gray-950 bg-gray-950 shadow-[0_22px_60px_rgba(15,23,42,0.2)] sm:h-[460px] sm:w-[215px]">
-                                        <Image
-                                             src="/mocks/mock4.png"
-                                             alt="Parentfully routines screen"
-                                             fill
-                                             sizes="(min-width: 640px) 215px, 170px"
-                                             className="object-cover object-top"
-                                        />
-                                   </div>
+                                   <PhoneFrame
+                                        src="/mocks/home.webp"
+                                        alt="Parentfully home screen"
+                                        priority
+                                        sizes="(min-width: 640px) 240px, 150px"
+                                        className="w-[150px] sm:w-[240px]"
+                                   />
+                                   <PhoneFrame
+                                        src="/mocks/goals.webp"
+                                        alt="Parentfully goals screen"
+                                        sizes="(min-width: 640px) 215px, 145px"
+                                        className="mb-10 w-[145px] sm:w-[215px]"
+                                   />
                               </div>
                          </motion.div>
                     </div>
@@ -169,6 +165,7 @@ export default function DownloadPage() {
                          })}
                     </motion.div>
 
+                    {/** Download Stats
                     <div className="mt-10 grid gap-3 sm:grid-cols-3">
                          {downloadStats.map((stat) => (
                               <div key={stat.label} className="rounded-2xl border border-white/70 bg-white/55 p-5 text-center shadow-sm backdrop-blur-md">
@@ -176,7 +173,8 @@ export default function DownloadPage() {
                                    <p className="mt-1 text-sm font-bold text-gray-600">{stat.label}</p>
                               </div>
                          ))}
-                    </div>
+                    </div>                   
+                    */}
 
                     <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-2 text-center text-sm font-semibold text-gray-600">
                          <CheckCircle2 className="h-4 w-4 shrink-0 text-[#F38500]" />

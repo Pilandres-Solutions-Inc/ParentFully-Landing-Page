@@ -10,6 +10,7 @@ import {
      Users
 } from "lucide-react";
 import Link from "next/link";
+import { useReducedPageMotion } from "@/utils/useReducedPageMotion";
 
 const struggleGroups = [
      {
@@ -42,14 +43,16 @@ const struggleGroups = [
 ];
 
 export default function ProblemSection() {
+     const reduceMotion = useReducedPageMotion();
+
      return (
           <section className="relative py-20 lg:py-28 overflow-hidden bg-white">
                <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="max-w-4xl mx-auto">
                          <motion.div
-                              initial={{ opacity: 0, y: 30 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6 }}
                               className="mb-14 text-center lg:mb-16"
                          >
@@ -85,9 +88,9 @@ export default function ProblemSection() {
 
                          {/* Struggle Impact */}
                          <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6, delay: 0.2 }}
                               className="mb-8 overflow-hidden rounded-2xl border border-red-100 bg-[#FFF7F2] shadow-[0_24px_70px_rgba(248,113,113,0.14)]"
                          >
@@ -125,9 +128,9 @@ export default function ProblemSection() {
                                         {struggleGroups.map((group, idx) => (
                                              <motion.div
                                                   key={group.title}
-                                                  initial={{ opacity: 0, y: 16 }}
-                                                  whileInView={{ opacity: 1, y: 0 }}
-                                                  viewport={{ once: true }}
+                                                  initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+                                                  whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                                                  viewport={reduceMotion ? undefined : { once: true }}
                                                   transition={{ delay: idx * 0.08 }}
                                                   className="rounded-2xl border border-red-100 bg-white p-4 shadow-sm sm:p-5"
                                              >
@@ -158,9 +161,9 @@ export default function ProblemSection() {
 
                          {/* Resolution */}
                          <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6, delay: 0.4 }}
                               className="text-center"
                          >

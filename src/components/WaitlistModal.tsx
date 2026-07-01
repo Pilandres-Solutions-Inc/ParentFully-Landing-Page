@@ -17,11 +17,11 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
                     ×
                 </button>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    You have successfully joined the waitlist. 🎉
+                    Thanks for reaching out.
                 </h3>
                 <h5>ParentFully is more than an app
                     <br />
-                    We are a community. Join our WhatsApp or Telegram groups for support, tips, and early updates.
+                    We are a community. Join our WhatsApp or Telegram groups for support and parenting tips.
                 </h5>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">

@@ -130,8 +130,9 @@ const TermsOfService = () => {
                               <div id="governing" className="scroll-mt-32 mb-12">
                                    <h2 className="text-2xl font-bold text-[#1A1A1A] mb-6">9. Governing Law</h2>
                                    <p className="text-gray-700">
-                                        These Terms shall be governed by the laws of <strong>[Your Jurisdiction]</strong>.
-                                        Any disputes shall be subject to the exclusive jurisdiction of the courts located in <strong>[Your Location]</strong>.
+                                        These Terms shall be governed by the laws applicable to Pilandres Inc. and the
+                                        services it provides. Any disputes shall be handled by a court with proper
+                                        jurisdiction over the matter.
                                    </p>
                               </div>
 

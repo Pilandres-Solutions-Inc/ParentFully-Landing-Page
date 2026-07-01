@@ -3,7 +3,7 @@ import { IFAQ } from "@/types";
 export const faqs: IFAQ[] = [
     {
         question: "Is this just for divorced parents?",
-        answer: "No. 70% of our beta families are married. If more than one adult helps raise your kid, Parentfully helps.",
+        answer: "No. Parentfully is built for any family where more than one adult helps raise a child, including married parents, co-parents, grandparents, and caregivers.",
     },
     {
         question: "Will this make parenting feel like homework?",

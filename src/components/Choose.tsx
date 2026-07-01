@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Users, User, Briefcase, Home } from "lucide-react";
 import Link from "next/link";
+import { useReducedPageMotion } from "@/utils/useReducedPageMotion";
 
 const audienceTypes = [
     {
@@ -31,6 +32,8 @@ const audienceTypes = [
 ];
 
 export default function WhoItsFor() {
+    const reduceMotion = useReducedPageMotion();
+
     return (
         <section className="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-br from-[#005A31] via-[#005A31]/95 to-[#F38500]/80">
             {/* Background Pattern */}
@@ -43,15 +46,15 @@ export default function WhoItsFor() {
                 <div className="max-w-5xl mx-auto">
                     {/* Header */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+                        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                        viewport={reduceMotion ? undefined : { once: true }}
                         transition={{ duration: 0.6 }}
                         className="mb-14 text-center lg:mb-16"
                     >
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
+                            whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
                             transition={{ delay: 0.2 }}
                             className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6"
                         >
@@ -65,18 +68,18 @@ export default function WhoItsFor() {
 
                     {/* Audience Grid */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                        viewport={reduceMotion ? undefined : { once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2"
                     >
                         {audienceTypes.map((type, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                                viewport={reduceMotion ? undefined : { once: true }}
                                 transition={{ delay: idx * 0.05 }}
                                 className="group rounded-2xl border border-white/25 bg-white/[0.16] p-5 shadow-[0_18px_45px_rgba(0,0,0,0.12)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.22] hover:shadow-[0_24px_55px_rgba(0,0,0,0.16)] sm:p-6"
                             >
@@ -96,9 +99,9 @@ export default function WhoItsFor() {
 
                     {/* CTA Button */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                        viewport={reduceMotion ? undefined : { once: true }}
                         transition={{ delay: 0.5 }}
                         className="flex justify-center"
                     >
@@ -112,9 +115,9 @@ export default function WhoItsFor() {
 
                     {/* Trust Badge */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
+                        initial={reduceMotion ? false : { opacity: 0 }}
+                        whileInView={reduceMotion ? undefined : { opacity: 1 }}
+                        viewport={reduceMotion ? undefined : { once: true }}
                         transition={{ delay: 0.6 }}
                         className="mt-12 text-center text-white/50 text-sm font-medium"
                     >

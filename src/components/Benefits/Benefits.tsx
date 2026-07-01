@@ -2,16 +2,19 @@
 import BenefitSection from "./BenefitSection"
 import { benefits } from "@/data/benefits"
 import { motion } from "framer-motion";
+import { useReducedPageMotion } from "@/utils/useReducedPageMotion";
 
 const Benefits: React.FC = () => {
+    const reduceMotion = useReducedPageMotion();
+
     return (
         <section id="features" className="bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="mx-auto mb-6 max-w-3xl text-center lg:mb-20">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                        viewport={reduceMotion ? undefined : { once: true }}
                         className="space-y-4"
                     >
                         <h2 className="text-4xl font-black leading-[1.05] text-[#005A31] text-balance md:text-6xl">
@@ -31,6 +34,7 @@ const Benefits: React.FC = () => {
                             key={index}
                             benefit={item}
                             imageAtRight={index % 2 !== 0}
+                            reduceMotion={reduceMotion}
                         />
                     ))}
                 </div>

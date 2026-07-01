@@ -4,22 +4,8 @@ import { motion } from "framer-motion";
 import {
      ArrowLeftRight,
      ArrowRight,
-     Clock,
-     Heart,
-     MessageCircle,
-     Shield,
-     Target,
-     Users
 } from "lucide-react";
-
-const familyTraits = [
-     { icon: <Clock className="w-5 h-5" />, text: "A family with routines" },
-     { icon: <Target className="w-5 h-5" />, text: "A family with goals" },
-     { icon: <Shield className="w-5 h-5" />, text: "A family with clear expectations" },
-     { icon: <MessageCircle className="w-5 h-5" />, text: "A family with better communication" },
-     { icon: <Users className="w-5 h-5" />, text: "A family where children know what to expect" },
-     { icon: <Heart className="w-5 h-5" />, text: "A family where parenting feels less scattered" }
-];
+import { useReducedPageMotion } from "@/utils/useReducedPageMotion";
 
 const outcomes = [
      "More structure",
@@ -60,14 +46,16 @@ const transformations = [
 ];
 
 export default function TransformationSection() {
+     const reduceMotion = useReducedPageMotion();
+
      return (
           <section className="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-br from-[#005A31] to-[#005A31]/90">
                <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="max-w-5xl mx-auto">
                          <motion.div
-                              initial={{ opacity: 0, y: 30 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6 }}
                               className="mx-auto mb-12 max-w-4xl text-center lg:mb-14"
                          >
@@ -102,18 +90,18 @@ export default function TransformationSection() {
                          </motion.div>
 
                          <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6, delay: 0.2 }}
                               className="space-y-4"
                          >
                               {transformations.map((item, idx) => (
                                    <motion.div
                                         key={idx}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
+                                        initial={reduceMotion ? false : { opacity: 0, x: -20 }}
+                                        whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+                                        viewport={reduceMotion ? undefined : { once: true }}
                                         transition={{ delay: idx * 0.05 }}
                                         className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all"
                                    >
@@ -134,9 +122,9 @@ export default function TransformationSection() {
 
                          {/** 
                          <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6, delay: 0.3 }}
                               className="mt-8 rounded-2xl border border-white/15 bg-white p-6 shadow-[0_24px_70px_rgba(0,0,0,0.18)] md:p-8"
                          >
@@ -174,9 +162,9 @@ export default function TransformationSection() {
                                    {outcomes.map((outcome, idx) => (
                                         <motion.span
                                              key={idx}
-                                             initial={{ opacity: 0, scale: 0.8 }}
-                                             whileInView={{ opacity: 1, scale: 1 }}
-                                             viewport={{ once: true }}
+                                             initial={reduceMotion ? false : { opacity: 0, scale: 0.8 }}
+                                             whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+                                             viewport={reduceMotion ? undefined : { once: true }}
                                              transition={{ delay: idx * 0.1 }}
                                              className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white backdrop-blur-sm"
                                         >
@@ -187,9 +175,9 @@ export default function TransformationSection() {
                          </motion.div>
                          
                          <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ delay: 0.5 }}
                               className="mt-10 text-center"
                          >

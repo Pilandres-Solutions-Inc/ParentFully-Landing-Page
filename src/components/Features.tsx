@@ -4,6 +4,7 @@ import {
      Clock, Target, Shield, Calendar,
      MessageSquare, FileText, DollarSign, Users
 } from "lucide-react";
+import { useReducedPageMotion } from "@/utils/useReducedPageMotion";
 
 const dailyTools = [
      {
@@ -67,13 +68,15 @@ const skillAreas = [
 ];
 
 export default function FeatureOverview() {
+     const reduceMotion = useReducedPageMotion();
+
      return (
           <section className="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-br from-gray-50 to-white">
                <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <motion.div
-                         initial={{ opacity: 0, y: 30 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true }}
+                         initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+                         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                         viewport={reduceMotion ? undefined : { once: true }}
                          transition={{ duration: 0.6 }}
                          className="mx-auto mb-14 max-w-4xl text-center lg:mb-16"
                     >
@@ -87,16 +90,16 @@ export default function FeatureOverview() {
                     </motion.div>
 
                     <motion.div
-                         initial={{ opacity: 0, y: 20 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true }}
+                         initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                         viewport={reduceMotion ? undefined : { once: true }}
                          transition={{ duration: 0.6, delay: 0.2 }}
                          className="grid grid-cols-1 lg:grid-cols-2 gap-6"
                     >
                          <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-[0_18px_45px_rgba(15,23,42,0.06)]"
                          >
                               <h3 className="text-2xl font-black leading-tight text-[#005A31] sm:text-3xl">Make Every Day Easier</h3>
@@ -117,9 +120,9 @@ export default function FeatureOverview() {
                          </motion.div>
 
                          <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ delay: 0.1 }}
                               className="rounded-2xl border border-[#005A31]/10 bg-[#005A31] p-6 sm:p-8 shadow-[0_18px_45px_rgba(0,90,49,0.16)]"
                          >

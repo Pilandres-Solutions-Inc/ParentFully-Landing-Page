@@ -22,7 +22,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiSmile size={26} />
             }
         ],
-        imageSrc: "/mocks/mock4.png"
+        imageSrc: "/mocks/routines.webp"
     },
     {
         title: "Whole-Child Goals for ages 3-12+",
@@ -39,7 +39,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiHeart size={26} />
             }
         ],
-        imageSrc: "/mocks/mock6.png"
+        imageSrc: "/mocks/goals.webp"
     },
     {
         title: "Align on Rules Before Things Get Hard",
@@ -90,7 +90,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiClock size={26} />
             }
         ],
-        imageSrc: "/mocks/mock4.png"
+        imageSrc: "/mocks/home.webp"
     },
     {
         title: "Support Co-Parenting With Clarity",
@@ -141,6 +141,6 @@ export const benefits: IBenefit[] = [
                 icon: <FiCheckCircle size={26} />
             }
         ],
-        imageSrc: "/mocks/mock6.png"
+        imageSrc: "/mocks/finance.webp"
     }
 ];

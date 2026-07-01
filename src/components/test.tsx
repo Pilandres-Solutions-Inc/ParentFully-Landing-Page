@@ -31,7 +31,7 @@ const CTA: React.FC = () => {
 
                          <p> Score: </p> <p> Note: </p>
 
-                         <p> Latest Enteries : </p>
+                         <p> Latest Entries : </p>
 
                          {/* Submit */}
                          <button
@@ -41,7 +41,7 @@ const CTA: React.FC = () => {
                               className={`w-full mt-6 px-6 py-3 rounded-lg font-semibold shadow-md transition-colors
                 ${loading ? "bg-[#F38500]/60 cursor-not-allowed text-white" : "bg-[#F38500] hover:bg-[#F38500]/90 text-white"}
               `}
-                              aria-label={loading ? "Submitting your information" : "Join waitlist"}
+                              aria-label={loading ? "Submitting your information" : "Submit readiness score"}
                          >
                               {loading ? (
                                    <span className="flex items-center justify-center">
@@ -51,7 +51,7 @@ const CTA: React.FC = () => {
                                         </svg>
                                         Scoring....
                                    </span>
-                              ) : "Join Waitlist"}
+                              ) : "Submit Score"}
                          </button>
                     </div>
                </div>

@@ -14,6 +14,7 @@ import {
      Sparkles,
      Users
 } from "lucide-react";
+import { useReducedPageMotion } from "@/utils/useReducedPageMotion";
 
 const mentalLoadItems = [
      { icon: <CalendarCheck className="h-5 w-5" />, text: "Remember the routines" },
@@ -27,6 +28,8 @@ const mentalLoadItems = [
 ];
 
 export default function Struggling() {
+     const reduceMotion = useReducedPageMotion();
+
      return (
           <section className="relative overflow-hidden bg-white py-20 lg:py-28">
                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(226,253,248,0.85),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(243,133,0,0.12),transparent_34%)]" />
@@ -34,9 +37,9 @@ export default function Struggling() {
                <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
                     <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
                          <motion.div
-                              initial={{ opacity: 0, y: 28 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6 }}
                               className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left"
                          >
@@ -60,9 +63,9 @@ export default function Struggling() {
                          </motion.div>
 
                          <motion.div
-                              initial={{ opacity: 0, y: 28 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6, delay: 0.12 }}
                               className="rounded-2xl border border-[#005A31]/10 bg-[#E2FDF8] p-5 shadow-[0_24px_70px_rgba(0,90,49,0.12)] sm:p-7"
                          >
@@ -79,9 +82,9 @@ export default function Struggling() {
                                    {mentalLoadItems.map((item, index) => (
                                         <motion.div
                                              key={item.text}
-                                             initial={{ opacity: 0, y: 14 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             viewport={{ once: true }}
+                                             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+                                             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                                             viewport={reduceMotion ? undefined : { once: true }}
                                              transition={{ delay: index * 0.05 }}
                                              className="flex items-center gap-3 rounded-xl border border-white/80 bg-white px-4 py-3 shadow-sm"
                                         >
@@ -96,9 +99,9 @@ export default function Struggling() {
                     </div>
 
                     <motion.div
-                         initial={{ opacity: 0, y: 24 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true }}
+                         initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+                         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                         viewport={reduceMotion ? undefined : { once: true }}
                          transition={{ duration: 0.6, delay: 0.2 }}
                          className="mx-auto mt-8 max-w-5xl rounded-2xl bg-[#005A31] p-6 text-center text-white shadow-[0_24px_70px_rgba(0,90,49,0.22)] sm:p-8 lg:mt-10"
                     >

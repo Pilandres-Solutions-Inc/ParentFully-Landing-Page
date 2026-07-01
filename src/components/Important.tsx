@@ -14,6 +14,7 @@ import {
      Sparkles,
      Target
 } from "lucide-react";
+import { useReducedPageMotion } from "@/utils/useReducedPageMotion";
 
 const savedIdeas = [
      { icon: <Sparkles className="h-5 w-5" />, text: "You save helpful parenting posts." },
@@ -39,15 +40,17 @@ const wholeChildAreas = [
 ];
 
 export default function EverydayActionSection() {
+     const reduceMotion = useReducedPageMotion();
+
      return (
           <section className="relative overflow-hidden bg-[#005A31] py-20 lg:py-28">
                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(243,133,0,0.22),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(226,253,248,0.12),transparent_32%)]" />
 
                <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
                     <motion.div
-                         initial={{ opacity: 0, y: 28 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true }}
+                         initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+                         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                         viewport={reduceMotion ? undefined : { once: true }}
                          transition={{ duration: 0.6 }}
                          className="mx-auto mb-12 max-w-4xl text-center lg:mb-16"
                     >
@@ -64,9 +67,9 @@ export default function EverydayActionSection() {
 
                     <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
                          <motion.div
-                              initial={{ opacity: 0, x: -24 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, x: -24 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6, delay: 0.1 }}
                               className="rounded-2xl border border-white/15 bg-white p-5 shadow-[0_28px_80px_rgba(0,0,0,0.18)] sm:p-7"
                          >
@@ -77,9 +80,9 @@ export default function EverydayActionSection() {
                                    {savedIdeas.map((item, idx) => (
                                         <motion.div
                                              key={item.text}
-                                             initial={{ opacity: 0, y: 14 }}
-                                             whileInView={{ opacity: 1, y: 0 }}
-                                             viewport={{ once: true }}
+                                             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+                                             whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                                             viewport={reduceMotion ? undefined : { once: true }}
                                              transition={{ delay: idx * 0.06 }}
                                              className="flex items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 px-4 py-3"
                                         >
@@ -99,9 +102,9 @@ export default function EverydayActionSection() {
                          </motion.div>
 
                          <motion.div
-                              initial={{ opacity: 0, x: 24 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
+                              initial={reduceMotion ? false : { opacity: 0, x: 24 }}
+                              whileInView={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+                              viewport={reduceMotion ? undefined : { once: true }}
                               transition={{ duration: 0.6, delay: 0.18 }}
                               className="flex flex-col gap-4 rounded-2xl border border-white/15 bg-[#E2FDF8] p-5 shadow-[0_28px_80px_rgba(0,0,0,0.16)] sm:p-7"
                          >
@@ -119,9 +122,9 @@ export default function EverydayActionSection() {
                                         {familySystem.map((item, idx) => (
                                              <motion.div
                                                   key={item.text}
-                                                  initial={{ opacity: 0, scale: 0.94 }}
-                                                  whileInView={{ opacity: 1, scale: 1 }}
-                                                  viewport={{ once: true }}
+                                                  initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
+                                                  whileInView={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+                                                  viewport={reduceMotion ? undefined : { once: true }}
                                                   transition={{ delay: idx * 0.07 + 0.2 }}
                                                   className="flex items-center gap-3 rounded-2xl bg-[#005A31] p-4 text-white"
                                              >

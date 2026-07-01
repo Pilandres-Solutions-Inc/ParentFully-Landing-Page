@@ -1,7 +1,7 @@
 
 export const downloadLinks = {
-     apple: "https://testflight.apple.com/join/PvwGNxJE",
-     google: "https://play.google.com/store/apps/details?id=com.axetechinnovations.parentfully",
+     apple: "https://apps.apple.com/ng/app/parentfully-app/id6777049373",
+     google: "https://play.google.com/store/apps/details?id=com.axetechinnovations.parentfully&pcampaignid=web_share",
 };
 
 export const downloadStats = [
@@ -12,9 +12,9 @@ export const downloadStats = [
 
 export const platformFeatures = [
      {
-          platform: "iOS (TestFlight)",
+          platform: "iOS",
           version: "v1.0.0",
-          requirements: "Requires iOS 15.0 or later",
+          requirements: "iPhone: Requires iOS 15.1 or later <br /> iPad: Requires iOS 15.1 or later",
           size: "48 MB"
      },
      {

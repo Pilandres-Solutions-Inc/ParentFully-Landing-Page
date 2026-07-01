@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Script from 'next/script';
-import { MessageCircleHeart, Quote, Sparkles } from 'lucide-react';
+import { MessageCircleHeart, Quote } from 'lucide-react';
 import { BsSend } from 'react-icons/bs';
 
 declare global {
