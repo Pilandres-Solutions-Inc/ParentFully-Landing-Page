@@ -6,6 +6,7 @@ import BenefitBullet from "./BenefitBullet";
 import SectionTitle from "../SectionTitle";
 import { IBenefit } from "@/types";
 import PhoneFrame from "../PhoneFrame";
+import TabletFrame from "../TabletFrame";
 
 
 interface Props {
@@ -36,7 +37,15 @@ export const childVariants: Variants = {
 
 const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, reduceMotion }: Props) => {
     const { title, description, imageSrc, bullets } = benefit;
-    const isPhoneScreenshot = imageSrc.endsWith(".webp");
+    const isTabletScreenshot = imageSrc.endsWith("child.webp");
+    const isIphoneScreenshot =
+        imageSrc.endsWith("discipline.webp") ||
+        imageSrc.endsWith("routines.webp") ||
+        imageSrc.endsWith("goals.webp") ||
+        imageSrc.endsWith("rules.webp") ||
+        imageSrc.endsWith("contact.webp") ||
+        imageSrc.endsWith("home.webp") ||
+        imageSrc.endsWith("finance.webp");
 
     return (
         <section className="relative overflow-hidden py-1 lg:py-1">
@@ -87,7 +96,14 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, reduceMotion }
 
                     {/* Option 1: With float animation on wrapper */}
                     <div className="animate-float">
-                        {isPhoneScreenshot ? (
+                        {isTabletScreenshot ? (
+                            <TabletFrame
+                                src={imageSrc}
+                                alt={title}
+                                sizes="(min-width: 1024px) 430px, (min-width: 640px) 360px, 300px"
+                                className="w-[300px] transition-transform duration-700 hover:scale-[1.02] sm:w-[360px] md:w-[430px]"
+                            />
+                        ) : isIphoneScreenshot ? (
                             <PhoneFrame
                                 src={imageSrc}
                                 alt={title}

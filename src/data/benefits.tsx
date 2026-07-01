@@ -7,6 +7,7 @@ import {
 } from "react-icons/fi";
 
 export const benefits: IBenefit[] = [
+
     {
         title: "Shared Routines Everyone Can Follow",
         description: "Keep mornings, meals, bedtime, chores, study time, and house rules consistent across every adult caring for your child.",
@@ -56,7 +57,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiCheckCircle size={26} />
             }
         ],
-        imageSrc: "/mocks/mock8.png"
+        imageSrc: "/mocks/discipline.webp"
     },
     {
         title: "Invite Your Whole Parenting Team",
@@ -73,7 +74,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiSmile size={26} />
             }
         ],
-        imageSrc: "/mocks/mock5.png"
+        imageSrc: "/mocks/contact.webp"
     },
     {
         title: "Run the Family Schedule With Less Mental Load",
@@ -90,7 +91,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiClock size={26} />
             }
         ],
-        imageSrc: "/mocks/home.webp"
+        imageSrc: "/mocks/child.webp"
     },
     {
         title: "Support Co-Parenting With Clarity",
@@ -107,7 +108,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiShield size={26} />
             }
         ],
-        imageSrc: "/mocks/mock1.png"
+        imageSrc: "/mocks/home.webp"
     },
     {
         title: "Document Important Parenting Moments",
@@ -124,7 +125,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiTrendingUp size={26} />
             }
         ],
-        imageSrc: "/mocks/mock2.png"
+        imageSrc: "/mocks/mock1.png"
     },
     {
         title: "Track Child-Related Expenses Clearly",
