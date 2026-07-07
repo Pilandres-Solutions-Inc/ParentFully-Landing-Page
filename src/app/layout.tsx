@@ -10,8 +10,8 @@ const manrope = Manrope({ subsets: ["latin"] });
 const sourceSans = Source_Sans_3({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: siteDetails.metadata.title,
-  description: siteDetails.metadata.description,
+  title: 'Parentfully | The Family Operating System',
+  description: 'Parentfully is the Family Operating System that helps parents turn good intentions into everyday action. Create routines, build positive habits, set growth goals, coordinate caregivers, and raise thriving children with more clarity and less overwhelm.',
   keywords: [
     "Parenting app",
     "family organizer",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "family schedule",
   ],
   openGraph: {
-    title: siteDetails.metadata.title,
-    description: siteDetails.metadata.description,
+    title: 'Raise Thriving Children With More Clarity and Less Overwhelm',
+    description: 'Parenting does not have to feel overwhelming. Parentfully helps your family create routines, build habits, achieve growth goals, and stay aligned—all in one simple app.',
     url: siteDetails.siteUrl,
     type: "website",
     images: [
       {
-        url: "/icons/ParentFully.png",
+        url: "/images/emote-normal.png",
         width: 1200,
         height: 675,
         alt: siteDetails.siteName,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
-    images: ["/icons/ParentFully.png"],
+    images: ["/images/emote-zoom.png"],
   },
 };
 

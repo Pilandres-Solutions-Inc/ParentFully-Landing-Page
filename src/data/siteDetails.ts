@@ -3,10 +3,10 @@ export const siteDetails = {
     siteUrl: 'https://parentfully.app/',
     language: 'en-us',
     locale: 'en-US',
-    siteLogo: `${process.env.BASE_PATH || ''}/images/icon.png`,
-    googleAnalyticsId: 'GTM-5V5DF7ZG', // Store only the GTM ID, not the full script
+    siteLogo: `/images/emote-normal.png`,
+    googleAnalyticsId: 'GTM-5V5DF7ZG',
     metadata: {
-        title: 'ParentFully - Parenting App for Your Whole Team',
-        description: 'Parentfully is a parenting app, family organizer, shared calendar, child development tracker, chore tracking tool, nanny app, and family schedule system that helps parents, grandparents, nannies, and caregivers stay aligned around routines, expenses, life skills, emotional intelligence, character education, and progress.',
+        title: 'Parentfully | The Family Operating System',
+        description: 'Raise thriving children with more clarity and less overwhelm. Build routines, track growth goals, coordinate caregivers, and create a calmer family life—all in one app.',
     },
 };

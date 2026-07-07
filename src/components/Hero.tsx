@@ -30,9 +30,7 @@ const Hero: React.FC = () => {
                     </h1>
 
                     <p className="mt-7 max-w-3xl text-lg font-semibold leading-relaxed text-gray-700 md:text-xl">
-                        Parentfully helps you create a simple family system that makes everyday parenting easier,
-                        discipline more consistent, and gives your family the structure it needs so your child can
-                        thrive.
+                        Parentfully is the Family Operating System that helps you turn good parenting intentions into simple routines, shared plans, growth goals, and everyday actions your family can actually follow.
                     </p>
 
                     <p className="mt-3 max-w-3xl text-base font-black leading-relaxed text-[#005A31] md:text-lg text-xl">
@@ -56,8 +54,8 @@ const Hero: React.FC = () => {
                                 </div>
                             </div>
                             <div className="flex flex-col items-start border-l border-white/20 pl-4 leading-none">
-                                <span className="text-[10px] font-bold uppercase tracking-wider text-orange-100">Start Free</span>
-                                <span className="text-lg">Download Parentfully</span>
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-orange-100">Start Free Today</span>
+                                <span className="text-lg">See How It Works</span>
                             </div>
                             <div className="rounded-full bg-[#F38500] p-1.5 transition group-hover:bg-white/25">
                                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
