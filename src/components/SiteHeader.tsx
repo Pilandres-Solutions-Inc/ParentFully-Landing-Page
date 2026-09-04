@@ -2,10 +2,15 @@
 
 import { usePathname } from 'next/navigation';
 
-import AffiliateHeader from './affiliate/AffiliateHeader';
 import Header from './Header';
+
+const affiliateNavigation = [
+    { text: 'Home', url: '/affiliate' },
+    { text: 'Help', url: '/help' },
+    { text: 'Support', url: 'mailto:admin@parentfullyapp.com' },
+];
 
 export default function SiteHeader() {
     const pathname = usePathname();
-    return pathname.startsWith('/affiliate') ? <AffiliateHeader /> : <Header />;
+    return <Header navigationItems={pathname.startsWith('/affiliate') ? affiliateNavigation : undefined} />;
 }

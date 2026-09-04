@@ -8,10 +8,15 @@ import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 
 import Container from './Container';
 import { siteDetails } from '@/data/siteDetails';
-import { menuItems } from '@/data/menuItems';
+import { menuItems as defaultMenuItems } from '@/data/menuItems';
+import type { IMenuItem } from '@/types';
 import { getSurfaceLuminanceAt } from '@/utils/surfaceTone';
 
-const Header: React.FC = () => {
+type HeaderProps = {
+    navigationItems?: IMenuItem[];
+};
+
+const Header: React.FC<HeaderProps> = ({ navigationItems = defaultMenuItems }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [isDarkSurface, setIsDarkSurface] = useState(false);
@@ -71,7 +76,7 @@ const Header: React.FC = () => {
                     {/* Desktop Navigation - Clean & Spaced */}
                     <div className="hidden md:flex items-center gap-8">
                         <ul className="flex items-center gap-8">
-                            {menuItems.map((item) => (
+                            {navigationItems.map((item) => (
                                 <li key={item.text}>
                                     <Link
                                         href={item.url}
@@ -115,7 +120,7 @@ const Header: React.FC = () => {
                 <div className="px-4 mt-4 md:hidden">
                     <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
                         <ul className="flex flex-col p-8 gap-6">
-                            {menuItems.map((item) => (
+                            {navigationItems.map((item) => (
                                 <li key={item.text}>
                                     <Link
                                         href={item.url}

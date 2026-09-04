@@ -11,7 +11,8 @@ import {
      ArrowRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { faqs, helpArticles } from "@/data/helpCenter";
+import { helpArticles } from "@/data/helpCenter";
+import { faqs } from "@/data/faq";
 
 const HelpCenter = () => {
      const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -92,7 +93,7 @@ const HelpCenter = () => {
                                                   className="w-full flex items-center justify-between py-6 text-left hover:text-[#005A31] transition-colors group"
                                              >
                                                   <span className={`font-bold text-lg transition-colors ${activeFaq === i ? 'text-[#005A31]' : 'text-[#1A1A1A]'}`}>
-                                                       {faq.q}
+                                                       {faq.question}
                                                   </span>
                                                   <div className={`p-1.5 rounded-full transition-colors ${activeFaq === i ? 'bg-[#005A31] text-white' : 'bg-gray-50 text-gray-400'}`}>
                                                        <ChevronDown className={`transition-transform duration-500 ${activeFaq === i ? 'rotate-180' : ''}`} size={18} />
@@ -107,7 +108,7 @@ const HelpCenter = () => {
                                                             transition={{ duration: 0.3, ease: "easeOut" }}
                                                        >
                                                             <p className="pb-8 text-gray-600 leading-relaxed font-medium">
-                                                                 {faq.a}
+                                                                 {faq.answer}
                                                             </p>
                                                        </motion.div>
                                                   )}

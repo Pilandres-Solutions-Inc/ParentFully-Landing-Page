@@ -13,13 +13,13 @@ import {
     Eye,
     EyeOff,
     Handshake,
-    Loader2,
     Megaphone,
     ShieldCheck,
     Users,
 } from 'lucide-react';
 
 import type { AffiliateApplicationPayload } from '@/lib/affiliate/types';
+import PartnerAgreementModal from '@/components/affiliate/PartnerAgreementModal';
 
 const inputClass = 'h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-[15px] text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-[#00683A] focus:bg-white focus:ring-4 focus:ring-[#00683A]/10';
 const labelClass = 'grid gap-2 text-sm font-bold text-slate-800';
@@ -90,6 +90,8 @@ export default function AffiliatePage() {
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [agreementOpen, setAgreementOpen] = useState(false);
+    const [agreementAccepted, setAgreementAccepted] = useState(false);
     const passwordsMatch = useMemo(
         () => !form.password_confirmation || form.password === form.password_confirmation,
         [form.password, form.password_confirmation],
@@ -100,13 +102,25 @@ export default function AffiliatePage() {
         if (error) setError('');
     };
 
-    const submitApplication = async (event: FormEvent<HTMLFormElement>) => {
+    const reviewApplication = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!form.name.trim()) return setError('Please enter your full name.');
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) return setError('Please enter a valid email address.');
         if (form.password.length < 8) return setError('Create a password with at least 8 characters.');
         if (!form.password_confirmation) return setError('Please confirm your password.');
         if (!passwordsMatch) return setError('Your passwords do not match. Please enter them again.');
+        try {
+            normalizeOptionalUrl(form.website_url, 'website');
+            normalizeOptionalUrl(socialLink, 'social profile');
+        } catch (validationError) {
+            return setError(validationError instanceof Error ? validationError.message : 'Please check the links you entered.');
+        }
+        setError('');
+        setAgreementOpen(true);
+    };
+
+    const submitApplication = async () => {
+        if (!agreementAccepted || submitting) return;
         setSubmitting(true);
         setError('');
         try {
@@ -126,6 +140,7 @@ export default function AffiliatePage() {
             });
             const payload = await response.json().catch(() => null);
             if (!response.ok) throw new Error(getErrorMessage(payload, response.status));
+            setAgreementOpen(false);
             setSubmitted(true);
         } catch (submissionError) {
             const message = submissionError instanceof Error ? submissionError.message : '';
@@ -214,7 +229,7 @@ export default function AffiliatePage() {
                         ) : (
                             <>
                                 <div className="border-b border-slate-200 pb-6"><p className="text-sm font-black uppercase tracking-[0.14em] text-[#BF6500]">Partner application</p><h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">Tell us about your community</h2><p className="mt-2 text-sm leading-relaxed text-slate-600">Fields marked with * are required. Applications are reviewed before portal access is activated.</p></div>
-                                <form noValidate onSubmit={submitApplication} className="mt-7 grid gap-5 sm:grid-cols-2">
+                                <form noValidate onSubmit={reviewApplication} className="mt-7 grid gap-5 sm:grid-cols-2">
                                     <label className={labelClass}><span>Full name *</span><input required autoComplete="name" className={inputClass} value={form.name} onChange={(event) => updateField('name', event.target.value)} placeholder="Your full name" /></label>
                                     <label className={labelClass}><span>Email address *</span><input required type="email" autoComplete="email" className={inputClass} value={form.email} onChange={(event) => updateField('email', event.target.value)} placeholder="you@example.com" /></label>
                                     <label className={labelClass}><span>Phone number <span className="font-medium text-slate-400">(optional)</span></span><input autoComplete="tel" className={inputClass} value={form.phone} onChange={(event) => updateField('phone', event.target.value)} placeholder="+1 555 000 0000" /></label>
@@ -230,7 +245,7 @@ export default function AffiliatePage() {
                                     <label className={labelClass}><span>Create portal password *</span><span className="relative"><input required minLength={8} type={showPassword ? 'text' : 'password'} autoComplete="new-password" className={`${inputClass} pr-12`} value={form.password} onChange={(event) => updateField('password', event.target.value)} placeholder="At least 8 characters" /><button type="button" onClick={() => setShowPassword((value) => !value)} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-2 text-slate-500 hover:bg-slate-100" aria-label={showPassword ? 'Hide password' : 'Show password'}>{showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}</button></span></label>
                                     <label className={labelClass}><span>Confirm password *</span><input required minLength={8} type={showPassword ? 'text' : 'password'} autoComplete="new-password" className={`${inputClass} ${passwordsMatch ? '' : 'border-red-400 focus:border-red-500 focus:ring-red-100'}`} value={form.password_confirmation} onChange={(event) => updateField('password_confirmation', event.target.value)} placeholder="Repeat your password" />{!passwordsMatch && <span className="text-xs font-semibold text-red-600">Passwords do not match.</span>}</label>
                                     {error && <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-3 text-sm font-semibold text-red-700 sm:col-span-2">{error}</div>}
-                                    <div className="flex flex-col gap-3 border-t border-slate-200 pt-6 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between"><p className="text-xs leading-relaxed text-slate-500">Pending applicants cannot sign in until approved.</p><button disabled={submitting || !passwordsMatch} type="submit" className="inline-flex min-w-48 items-center justify-center gap-2 rounded-full bg-[#00683A] px-7 py-4 text-sm font-black text-white shadow-[0_16px_35px_rgba(0,104,58,0.22)] transition hover:-translate-y-0.5 hover:bg-[#00552F] disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:translate-y-0">{submitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Submitting…</> : <>Register <ArrowRight className="h-4 w-4" /></>}</button></div>
+                                    <div className="flex flex-col gap-3 border-t border-slate-200 pt-6 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between"><p className="max-w-md text-xs leading-relaxed text-slate-500">Pending applicants cannot sign in until approved. By continuing, you&apos;ll review our <Link href="/terms" target="_blank" className="font-black text-[#00683A] underline underline-offset-2">Terms</Link>, <Link href="/privacy" target="_blank" className="font-black text-[#00683A] underline underline-offset-2">Privacy Policy</Link>, and Partner Agreement before anything is submitted.</p><button disabled={submitting || !passwordsMatch} type="submit" className="inline-flex min-w-48 items-center justify-center gap-2 rounded-full bg-[#00683A] px-7 py-4 text-sm font-black text-white shadow-[0_16px_35px_rgba(0,104,58,0.22)] transition hover:-translate-y-0.5 hover:bg-[#00552F] disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:translate-y-0">Review and register <ArrowRight className="h-4 w-4" /></button></div>
                                 </form>
                             </>
                         )}
@@ -239,6 +254,17 @@ export default function AffiliatePage() {
             </section>
 
             <section className="border-t border-slate-200 bg-white px-4 py-14 sm:px-6"><div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center"><div><p className="text-sm font-black uppercase tracking-[0.14em] text-[#BF6500]">Already a partner?</p><h2 className="mt-2 text-2xl font-black text-slate-950">Your live reporting portal is ready.</h2></div><Link href="/affiliate/login" className="inline-flex items-center gap-2 rounded-full border border-[#00683A]/20 bg-[#EAF8F0] px-6 py-3 text-sm font-black text-[#00683A] transition hover:border-[#00683A]">Open Affiliate Dashboard<Megaphone className="h-4 w-4" /></Link></div></section>
+            <PartnerAgreementModal
+                open={agreementOpen}
+                accepted={agreementAccepted}
+                onAcceptedChange={setAgreementAccepted}
+                onClose={() => {
+                    if (!submitting) setAgreementOpen(false);
+                }}
+                onConfirm={() => void submitApplication()}
+                busy={submitting}
+                confirmLabel="Agree and submit application"
+            />
         </div>
     );
 }

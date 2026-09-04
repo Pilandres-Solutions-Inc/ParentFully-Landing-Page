@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { ArrowRight, Copy, ExternalLink, Smartphone } from 'lucide-react';
 import { useState } from 'react';
 
+import { downloadLinks } from '@/data/download';
+
 type Attribution = {
     code: string;
     type: 'referral' | 'affiliate';
@@ -15,6 +17,38 @@ export default function AffiliateAppHandoff({ attribution }: { attribution: Attr
     const appUrl = attribution
         ? `parentfully://register?${queryKey}=${encodeURIComponent(attribution.code)}`
         : 'parentfully://register';
+
+    const openParentfully = () => {
+        const userAgent = navigator.userAgent || '';
+
+        if (/Android/i.test(userAgent)) {
+            const appPath = attribution
+                ? `register?${queryKey}=${encodeURIComponent(attribution.code)}`
+                : 'register';
+            const fallbackUrl = encodeURIComponent(downloadLinks.google);
+            window.location.href = `intent://${appPath}#Intent;scheme=parentfully;package=com.axetechinnovations.parentfully;S.browser_fallback_url=${fallbackUrl};end`;
+            return;
+        }
+
+        if (/iPhone|iPad|iPod/i.test(userAgent)) {
+            let fallbackTimer = window.setTimeout(() => {
+                window.location.href = downloadLinks.apple;
+            }, 1400);
+
+            const cancelFallback = () => {
+                if (document.hidden) {
+                    window.clearTimeout(fallbackTimer);
+                    document.removeEventListener('visibilitychange', cancelFallback);
+                }
+            };
+
+            document.addEventListener('visibilitychange', cancelFallback);
+            window.location.href = appUrl;
+            return;
+        }
+
+        window.location.href = appUrl;
+    };
 
     const copyCode = async () => {
         if (!attribution) return;
@@ -55,9 +89,29 @@ export default function AffiliateAppHandoff({ attribution }: { attribution: Attr
                             <button onClick={() => void copyCode()} className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-black text-[#00683A]"><Copy className="h-4 w-4" /> {copied ? 'Copied' : 'Copy'}</button>
                         </div>
                     )}
-                    <a href={appUrl} className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#00683A] px-6 py-4 text-sm font-black text-white shadow-[0_16px_35px_rgba(0,104,58,0.2)] transition hover:bg-[#00552F]">Open Parentfully <ExternalLink className="h-4 w-4" /></a>
+                    <button type="button" onClick={openParentfully} className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#00683A] px-6 py-4 text-sm font-black text-white shadow-[0_16px_35px_rgba(0,104,58,0.2)] transition hover:bg-[#00552F]">Open Parentfully <ExternalLink className="h-4 w-4" /></button>
                     <Link href="/download" className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 px-6 py-4 text-sm font-black text-slate-800 transition hover:bg-slate-50">Get the app <ArrowRight className="h-4 w-4" /></Link>
-                    <p className="mt-6 text-center text-xs leading-relaxed text-slate-500">If Parentfully is already installed, choose “Open Parentfully.” Otherwise install it first, then return to this link.</p>
+
+                    <div className="mt-7 rounded-2xl border border-emerald-100 bg-emerald-50/70 p-5">
+                        <h2 className="text-sm font-black text-slate-950">How to continue</h2>
+                        <ol className="mt-4 space-y-3">
+                            {[
+                                'Tap “Open Parentfully” above.',
+                                'If the app is not installed, your App Store or Play Store page will open.',
+                                'Install Parentfully, then return to this referral page and tap “Open Parentfully” again.',
+                                attribution
+                                    ? 'Your referral code will be filled in automatically. You can also copy it above as a backup.'
+                                    : 'Create your Parentfully account in the app.',
+                            ].map((instruction, index) => (
+                                <li key={instruction} className="flex items-start gap-3 text-xs font-semibold leading-5 text-slate-600">
+                                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#00683A] text-[11px] font-black text-white">
+                                        {index + 1}
+                                    </span>
+                                    <span className="pt-0.5">{instruction}</span>
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
