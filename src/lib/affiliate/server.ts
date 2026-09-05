@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export const AFFILIATE_TOKEN_COOKIE = 'parentfully_affiliate_token';
 
-const DEFAULT_API_BASE_URL = 'https://parentfully-prod-api.axetechinnovations.com/api';
+const DEFAULT_API_BASE_URL = 'https://production-api.parentfullyapp.com/api';
 
 function resolveApiBaseUrl(): string {
     const configured = (

@@ -7,7 +7,7 @@ import Header from './Header';
 const affiliateNavigation = [
     { text: 'Home', url: '/affiliate' },
     { text: 'Help', url: '/help' },
-    { text: 'Support', url: 'mailto:admin@parentfullyapp.com' },
+    { text: 'Support', url: '/affiliate/support' },
 ];
 
 export default function SiteHeader() {

@@ -122,6 +122,7 @@ export default function AffiliateDashboardPage() {
     const [loading, setLoading] = useState(true);
     const [refreshing, setRefreshing] = useState(false);
     const [error, setError] = useState('');
+    const [dataWarning, setDataWarning] = useState('');
     const [copied, setCopied] = useState(false);
     const [agreementOpen, setAgreementOpen] = useState(false);
 
@@ -129,17 +130,34 @@ export default function AffiliateDashboardPage() {
         if (refresh) setRefreshing(true);
         else setLoading(true);
         setError('');
+        setDataWarning('');
         try {
-            const [dashboardData, referralData, commissionData, payoutData] = await Promise.all([
+            const [dashboardResult, referralResult, commissionResult, payoutResult] = await Promise.allSettled([
                 getAffiliateData<AffiliateDashboard>('dashboard'),
                 getAllAffiliateData<AffiliateReferral>('referrals'),
                 getAllAffiliateData<AffiliateCommission>('commissions'),
                 getAllAffiliateData<AffiliatePayout>('payouts'),
             ]);
-            setDashboard(dashboardData);
-            setReferrals(referralData);
-            setCommissions(commissionData);
-            setPayouts(payoutData);
+
+            const rejectedResults = [dashboardResult, referralResult, commissionResult, payoutResult]
+                .filter((result): result is PromiseRejectedResult => result.status === 'rejected');
+            const sessionExpired = rejectedResults.some((result) => {
+                const requestError = result.reason as Error & { status?: number };
+                return requestError?.status === 401 || requestError?.message === 'SESSION_EXPIRED';
+            });
+            if (sessionExpired) {
+                router.replace('/affiliate/login');
+                return;
+            }
+            if (dashboardResult.status === 'rejected') throw dashboardResult.reason;
+
+            setDashboard(dashboardResult.value);
+            if (referralResult.status === 'fulfilled') setReferrals(referralResult.value);
+            if (commissionResult.status === 'fulfilled') setCommissions(commissionResult.value);
+            if (payoutResult.status === 'fulfilled') setPayouts(payoutResult.value);
+            if (rejectedResults.length) {
+                setDataWarning('Some recent activity could not be refreshed. Your available dashboard data is still shown below.');
+            }
         } catch (loadError) {
             const requestError = loadError as Error & { status?: number };
             if (requestError.status === 401 || requestError.message === 'SESSION_EXPIRED') {
@@ -201,7 +219,7 @@ export default function AffiliateDashboardPage() {
     }
 
     return (
-        <div className="min-h-screen bg-[#F4F9F6] pb-20 pt-28 sm:pt-36">
+        <div className="min-h-screen bg-[#F4F9F6] pb-16 pt-24 sm:pt-32">
             <section className="px-4 sm:px-6">
                 <div className="mx-auto max-w-7xl">
                     <DashboardHeader
@@ -213,11 +231,12 @@ export default function AffiliateDashboardPage() {
                     />
 
                     {error && <div className="mt-5 flex items-center justify-between gap-4 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700"><span>{error}</span><button onClick={() => void loadDashboard()} className="shrink-0 font-black underline">Try again</button></div>}
+                    {dataWarning && <div className="mt-5 flex items-center justify-between gap-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm font-semibold text-amber-800"><span>{dataWarning}</span><button onClick={() => void loadDashboard(true)} className="shrink-0 font-black underline">Retry</button></div>}
 
-                    <div className="mt-7 grid min-w-0 gap-6 lg:grid-cols-[230px_minmax(0,1fr)]">
+                    <div className="mt-5 grid min-w-0 gap-5 lg:grid-cols-[210px_minmax(0,1fr)]">
                         <DashboardSidebar activeTab={activeTab} onChange={setActiveTab} />
                         <main className="min-w-0">
-                            <div className="grid gap-5 xl:grid-cols-[1fr_340px]">
+                            {activeTab === 'overview' && <div className="grid gap-4 xl:grid-cols-[1fr_320px]">
                                 <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
                                     {[
                                         { label: 'Total Referrals', value: stats?.total_referrals ?? 0, icon: Users, tone: 'bg-blue-50 text-blue-700' },
@@ -225,7 +244,7 @@ export default function AffiliateDashboardPage() {
                                         { label: 'Subscribed Families', value: stats?.paid_referrals ?? 0, icon: BadgeCheck, tone: 'bg-emerald-50 text-emerald-700' },
                                         { label: 'Commission Rate', value: `${Number(partner?.commission_rate ?? 0)}%`, icon: TrendingUp, tone: 'bg-orange-50 text-orange-700' },
                                     ].map(({ label, value, icon: Icon, tone }) => (
-                                        <div key={label} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"><span className={`flex h-10 w-10 items-center justify-center rounded-2xl ${tone}`}><Icon className="h-5 w-5" /></span><p className="mt-5 text-2xl font-black text-slate-950">{value}</p><p className="mt-1 text-xs font-bold text-slate-500">{label}</p></div>
+                                        <div key={label} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span className={`flex h-9 w-9 items-center justify-center rounded-xl ${tone}`}><Icon className="h-4 w-4" /></span><p className="mt-4 text-xl font-black text-slate-950">{value}</p><p className="mt-1 text-[11px] font-bold text-slate-500">{label}</p></div>
                                     ))}
                                 </div>
                                 <div className="rounded-3xl bg-[#083E28] p-5 text-white shadow-sm">
@@ -233,9 +252,9 @@ export default function AffiliateDashboardPage() {
                                     <p className="mt-4 truncate rounded-xl bg-white/10 px-3 py-2.5 text-xs text-emerald-50/75">{affiliateLink || 'Your code appears after approval.'}</p>
                                     <div className="mt-3 grid grid-cols-2 gap-2"><button disabled={!affiliateLink} onClick={() => void copyLink()} className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-3 py-2.5 text-xs font-black text-[#00683A] disabled:opacity-50">{copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />} {copied ? 'Copied' : 'Copy'}</button><button disabled={!affiliateLink} onClick={() => void shareLink()} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#F38500] px-3 py-2.5 text-xs font-black text-white disabled:opacity-50"><ExternalLink className="h-4 w-4" /> Share</button></div>
                                 </div>
-                            </div>
+                            </div>}
 
-                            <div className="mt-5 rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
+                            <div className={`${activeTab === 'overview' ? 'mt-4' : ''} rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-sm sm:p-6`}>
                                 {activeTab === 'overview' && <Overview stats={stats} currency={partner?.default_currency || 'USD'} referrals={referrals} commissions={commissions} onOpen={setActiveTab} />}
                                 {activeTab === 'referrals' && <ReferralsTable referrals={referrals} />}
                                 {activeTab === 'commissions' && <CommissionsTable commissions={commissions} />}
